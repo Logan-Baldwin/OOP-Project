@@ -95,7 +95,7 @@ namespace Baldwin_Matchett_Project
         public int Age { get; set; }
         public string Metal { get; set; }
 
-        public VintageJewelry(int code, string desc, decimal price, bool InStock, int age, string metal) : base(code, desc, price, instock)
+        public VintageJewelry(int code, string desc, decimal price, bool instock, int age, string metal) : base(code, desc, price, instock)
         {
             this.Age = age;
             this.Metal = metal;
@@ -114,7 +114,7 @@ namespace Baldwin_Matchett_Project
         public string Creator { get; set; }
         public string Origin { get; set; }
 
-        public AntiqueFurniture(int code, string desc, decimal price, bool InStock, string creator, string origin) : base(code, desc, price, instock)
+        public AntiqueFurniture(int code, string desc, decimal price, bool instock, string creator, string origin) : base(code, desc, price, instock)
         {
             this.Creator = creator;
             this.Origin = origin;
@@ -123,7 +123,7 @@ namespace Baldwin_Matchett_Project
         public override string ToString()
         {
             return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
-                    "   Available: " + this.InStock + "  Age: " + this.Age + "  Origin: " + this.Origin;
+                    "   Available: " + this.InStock + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
         }
     }
 
