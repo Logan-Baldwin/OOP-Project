@@ -7,17 +7,22 @@ using System.Threading.Tasks;
 namespace Baldwin_Matchett_Project
 {
 
-    /*
+ /*
   *  @author Parker Matchett
   *  date 2025/04/05 additions:
   *      -every basic class and derived class layout made
   *      
+  *      + = task remains to be completed
+  *      - = task was completed
   *
   *  TODO:
   *      - one interface (custom or built in)
-  *      - one of each: *sealed *abstract *static
+  *      - one of each: -sealed -abstract +static    (Product class was made abstract)       
+  *                                                  (Product subclasses were sealed)
   *      - respective methods
-  *      - overload 1 mathematical operator and 1 relational operator within the Product class
+  *      - overload -(1 mathematical operator) and +(1 relational operator) within the Product class            
+  *                                                  (mathematical operator override was added in product class)
+  *                                                  
   *      - at least 1 list
   *      - Static Helper class for files
   *      - Static Helper class for data validation
@@ -72,14 +77,14 @@ namespace Baldwin_Matchett_Project
 
     }
 
-    class Product
+    abstract class Product
     {
         public int Code { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public bool InStock { get; set; }
+        public int InStock { get; set; }
 
-        public Product(int code, string desc, decimal price, bool instock)
+        public Product(int code, string desc, decimal price, int instock)
         {
             this.Code = code;
             this.Description = desc;
@@ -87,44 +92,82 @@ namespace Baldwin_Matchett_Project
             this.InStock = instock;
         }
 
+        public override abstract string ToString();
+
+        public abstract bool IsAvailable();
+        
+        /* * * * * * * * * * * * * * * * * * * * * *
+         *  Mathematical operator overload:
+         *      will be used to total a customers 
+         *      order if they have selected multiple 
+         *      products
+         */
+        public static decimal operator+ (Product a, Product b)  
+        {
+            return a.Price + b.Price;
+        }
+
 
     }
 
-    class VintageJewelry : Product
+    sealed class VintageJewelry : Product
     {
         public int Age { get; set; }
         public string Metal { get; set; }
 
-        public VintageJewelry(int code, string desc, decimal price, bool instock, int age, string metal) : base(code, desc, price, instock)
+        public VintageJewelry(int code, string desc, decimal price, int instock, int age, string metal) : base(code, desc, price, instock)
         {
             this.Age = age;
             this.Metal = metal;
         }
 
+        public override bool IsAvailable()
+        {
+            if (this.InStock > 0)
+            { return true; }
+            else
+            { return false; }
+        }
+
         public override string ToString()
         {
             return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
-                    "   Available: " + this.InStock + "  Age: " + this.Age + "  Metal: " + this.Metal;
+                    "   Qty: " + this.InStock + "  Age: " + this.Age + "  Metal: " + this.Metal;
         }
 
     }
 
-    class AntiqueFurniture : Product
+    sealed class AntiqueFurniture : Product
     {
         public string Creator { get; set; }
         public string Origin { get; set; }
 
-        public AntiqueFurniture(int code, string desc, decimal price, bool instock, string creator, string origin) : base(code, desc, price, instock)
+        public AntiqueFurniture(int code, string desc, decimal price, int instock, string creator, string origin) : base(code, desc, price, instock)
         {
             this.Creator = creator;
             this.Origin = origin;
         }
 
+        public override bool IsAvailable()
+        {
+            if (this.InStock > 0)
+            { return true; }
+            else
+            { return false; }
+        }
+
         public override string ToString()
         {
             return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
-                    "   Available: " + this.InStock + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
+                    "   Qty: " + this.InStock + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
         }
     }
+
+    static class FileReadWrite
+    { 
+
+
+    }
+
 
 }
