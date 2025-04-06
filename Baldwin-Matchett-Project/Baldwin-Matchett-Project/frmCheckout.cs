@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Baldwin_Matchett_Project
 {
-    public partial class frmLogin : Form
+    public partial class frmCheckout : Form
     {
-        public frmLogin()
+        public frmCheckout()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            frmOrder order = new frmOrder();
-            order.ShowDialog(); 
         }
     }
 }
