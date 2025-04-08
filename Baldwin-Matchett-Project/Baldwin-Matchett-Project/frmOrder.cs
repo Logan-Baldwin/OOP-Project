@@ -12,9 +12,12 @@ namespace Baldwin_Matchett_Project
 {
     public partial class frmOrder : Form
     {
-        public frmOrder()
+        Inventory i = new Inventory();
+        string UserAccess;
+        public frmOrder(string useraccess)
         {
             InitializeComponent();
+            this.UserAccess = useraccess;
         }
         private void frmOrder_Load(object sender, EventArgs e)
         {
@@ -22,6 +25,11 @@ namespace Baldwin_Matchett_Project
             tabOrders.Appearance = TabAppearance.FlatButtons;
             tabOrders.ItemSize = new Size(0, 1);
             tabOrders.SizeMode = TabSizeMode.Fixed;
+
+
+            //testing file reading vvv
+            FileHelper.ReadProducts("inventory.txt", i.inventory);
+            i.UpdateListBox(lstProducts);
         }
 
         private void btnPurchase_Click(object sender, EventArgs e)
