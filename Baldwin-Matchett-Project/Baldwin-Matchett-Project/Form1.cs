@@ -31,7 +31,7 @@ namespace Baldwin_Matchett_Project
                 case "admin":
                     if (passIn == "admin")
                     {
-                        frmOrder order = new frmOrder("admin");
+                        frmOrder order = new frmOrder(admin.Access);
                         order.ShowDialog();
                         break;
                     }
@@ -40,7 +40,7 @@ namespace Baldwin_Matchett_Project
                 case "parker":
                     if (passIn == "parker")
                     {
-                        frmOrder order = new frmOrder("customer");
+                        frmOrder order = new frmOrder(customer1.Access);
                         order.ShowDialog();
                         break;
                     }
@@ -49,7 +49,7 @@ namespace Baldwin_Matchett_Project
                 case "logan":
                     if (passIn == "logan")
                     {
-                        frmOrder order = new frmOrder("customer");
+                        frmOrder order = new frmOrder(customer2.Access);
                         order.ShowDialog();
                         break;
                     }

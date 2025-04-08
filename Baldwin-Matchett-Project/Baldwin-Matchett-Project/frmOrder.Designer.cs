@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblStock = new System.Windows.Forms.Label();
             this.tabOrders = new System.Windows.Forms.TabControl();
             this.tabCustomer = new System.Windows.Forms.TabPage();
             this.btnViewCart = new System.Windows.Forms.Button();
@@ -57,39 +55,21 @@
             // 
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 20;
-            this.lstProducts.Location = new System.Drawing.Point(1, 132);
+            this.lstProducts.Location = new System.Drawing.Point(12, 132);
             this.lstProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstProducts.Name = "lstProducts";
-            this.lstProducts.Size = new System.Drawing.Size(402, 264);
+            this.lstProducts.Size = new System.Drawing.Size(763, 264);
             this.lstProducts.TabIndex = 2;
+            this.lstProducts.SelectedIndexChanged += new System.EventHandler(this.lstProducts_SelectedIndexChanged);
             // 
             // lblDescription
             // 
             this.lblDescription.BackColor = System.Drawing.Color.Silver;
             this.lblDescription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDescription.Location = new System.Drawing.Point(436, 132);
+            this.lblDescription.Location = new System.Drawing.Point(793, 132);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(403, 265);
+            this.lblDescription.Size = new System.Drawing.Size(275, 265);
             this.lblDescription.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label2.Location = new System.Drawing.Point(612, 415);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 26);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "In Stock:";
-            // 
-            // lblStock
-            // 
-            this.lblStock.BackColor = System.Drawing.Color.Silver;
-            this.lblStock.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblStock.Location = new System.Drawing.Point(713, 415);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(112, 29);
-            this.lblStock.TabIndex = 8;
             // 
             // tabOrders
             // 
@@ -187,7 +167,7 @@
             // 
             // btnRemoveProduct
             // 
-            this.btnRemoveProduct.Location = new System.Drawing.Point(354, 8);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(409, 10);
             this.btnRemoveProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemoveProduct.Name = "btnRemoveProduct";
             this.btnRemoveProduct.Size = new System.Drawing.Size(169, 82);
@@ -197,7 +177,7 @@
             // 
             // btnEditProduct
             // 
-            this.btnEditProduct.Location = new System.Drawing.Point(179, 8);
+            this.btnEditProduct.Location = new System.Drawing.Point(207, 10);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(169, 82);
@@ -207,7 +187,7 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(3, 8);
+            this.btnAddProduct.Location = new System.Drawing.Point(6, 10);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(169, 82);
@@ -228,7 +208,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(722, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(964, -2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 131);
@@ -240,14 +220,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 545);
+            this.ClientSize = new System.Drawing.Size(1080, 545);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.tabOrders);
-            this.Controls.Add(this.lblStock);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lstProducts);
+            this.Controls.Add(this.lblDescription);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -260,15 +238,12 @@
             this.tabAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.ListBox lstProducts;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.TabControl tabOrders;
         private System.Windows.Forms.TabPage tabCustomer;
         private System.Windows.Forms.TabPage tabAdmin;

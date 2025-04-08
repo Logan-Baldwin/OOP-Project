@@ -129,10 +129,6 @@ namespace Baldwin_Matchett_Project
     }
 
 
-
-
-
-
     static class Validator
     {
         /*
@@ -181,33 +177,34 @@ namespace Baldwin_Matchett_Project
         public static bool ValidateItem(string[] arr, out int code, out decimal price, out int qty, out int age)
         {
             bool result = false;
-            code = 0;
-            price = 0;
-            qty = 0;
-            age = 0;
-            System.Diagnostics.Debug.WriteLine($"item {arr[0]}");
             //if item is furniture, validate all numerical values associated with furniture objects
             //  if ANY of Validator's Find methods fail, we know we will not be able to construct this product (ValidateItem will return false)
             if (arr[0] == "furniture")
             {
-                result = Validator.FindInt(arr[1], out code) || Validator.FindDecimal(arr[3], out price) || Validator.FindInt(arr[4], out qty);
-                System.Diagnostics.Debug.WriteLine($"Validating item {arr[1]}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindInt(arr[1], out code)}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindDecimal(arr[3], out price)}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindInt(arr[4], out qty)}");
+                result = Validator.FindInt(arr[1], out int Code) & Validator.FindDecimal(arr[3], out decimal Price) & Validator.FindInt(arr[4], out int Qty);
+                code = Code;
+                price = Price;
+                qty = Qty;
+                age = 0;
+                return result;
             }
-
             //if item is jewelry, validate all numerical values associated with furniture objects
             //  if ANY of Validator's Find methods fail, we know we will not be able to construct this product (ValidateItem will return false)
             else if (arr[0] == "jewelry")
             {
-                result = Validator.FindInt(arr[1], out code) || Validator.FindDecimal(arr[3], out price) || Validator.FindInt(arr[4], out qty) || Validator.FindInt(arr[5], out age);
+                result = Validator.FindInt(arr[1], out int Code) & Validator.FindDecimal(arr[3], out decimal Price) & Validator.FindInt(arr[4], out int Qty) & Validator.FindInt(arr[5], out int Age);
+                code = Code;
+                price = Price;
+                qty = Qty;
+                age = Age;
+                return result;
             }
-            if (result == false)
+            else
             {
+                code = 0; price = 0; qty = 0; age = 0;
                 Err(arr[1]);
+                return result;
             }
-            return result;
         }
     }
 
@@ -306,8 +303,10 @@ namespace Baldwin_Matchett_Project
 
         public override string ToString()
         {
-            return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
-                    "   Qty: " + this.Quantity + "  Age: " + this.Age + "  Metal: " + this.Metal;
+            return $"Item Code:   {Code}\n" +
+                   $"Price:      ${Price}\n" +
+                   $"Age:         {Age}\n" +
+                   $"Metal:       {Metal}";
         }
 
     }
@@ -333,9 +332,11 @@ namespace Baldwin_Matchett_Project
 
         public override string ToString()
         {
-            return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
-                    "   Qty: " + this.Quantity + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
-        }
+            return $"Item Code:   {Code}\n" +
+                   $"Price:      ${Price}\n" +
+                   $"Creator:     {Creator}\n" +
+                   $"Origin:      {Origin}";
+        }       
     }
 
     class Inventory : IUpdater
@@ -354,7 +355,7 @@ namespace Baldwin_Matchett_Project
             l.Items.Clear();
             foreach (Product p in inventory)
             {
-                l.Items.Add(p);
+                l.Items.Add(String.Format("{0,-90}{1,-10}{2, -5}", p.Description, p.Price, p.Quantity));
             }
         }
         public void Clear(ListBox l)
@@ -366,11 +367,11 @@ namespace Baldwin_Matchett_Project
         }
         public void HideZeroes(ListBox l)
         {
-            foreach (Product p in l.Items)
+            for(int i = 0; i < l.Items.Count; i++)
             {
-                if (p.Quantity == 0)
+                if (!inventory[i].IsAvailable())
                 {
-                    l.Items.Remove(p);
+                    l.Items.RemoveAt(i);
                 }
             }
         }
@@ -414,17 +415,17 @@ namespace Baldwin_Matchett_Project
             l.Items.Clear();
             foreach (Product p in cart)
             {
-                l.Items.Add(p);
+                l.Items.Add(String.Format("{ 0,-25} | {1,-10} | {2, 5}", p.Description, p.Price, p.Quantity));
             }
         }
 
         public void HideZeroes(ListBox l)
         {
-            foreach (Product p in l.Items)
+            for (int i = 0; i < l.Items.Count; i++)
             {
-                if (p.Quantity == 0)
+                if (!cart[i].IsAvailable())
                 {
-                    l.Items.Remove(p);
+                    l.Items.RemoveAt(i);
                 }
             }
         }
