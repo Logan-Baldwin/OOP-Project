@@ -111,6 +111,7 @@
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(373, 228);
             this.lstCart.TabIndex = 5;
+            this.lstCart.SelectedIndexChanged += new System.EventHandler(this.lstCart_SelectedIndexChanged);
             // 
             // btnPayment
             // 
@@ -121,6 +122,7 @@
             this.btnPayment.TabIndex = 2;
             this.btnPayment.Text = "Proceed To Payment";
             this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnExit
             // 
