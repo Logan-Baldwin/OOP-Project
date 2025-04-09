@@ -370,7 +370,7 @@ namespace Baldwin_Matchett_Project
         }
     }
 
-    class Cart : IUpdater
+    public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
 
@@ -428,7 +428,7 @@ namespace Baldwin_Matchett_Project
      *      allows Inventory and Cart to interact seamlessly 
      *      with the form's listboxes
      */
-    interface IUpdater
+     interface IUpdater
     {
 
         /*

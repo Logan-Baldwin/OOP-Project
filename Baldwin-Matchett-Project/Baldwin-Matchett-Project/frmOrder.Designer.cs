@@ -91,7 +91,7 @@
             this.tabCustomer.Controls.Add(this.btnPurchase);
             this.tabCustomer.Location = new System.Drawing.Point(4, 31);
             this.tabCustomer.Name = "tabCustomer";
-            this.tabCustomer.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCustomer.Padding = new System.Windows.Forms.Padding(3);
             this.tabCustomer.Size = new System.Drawing.Size(518, 78);
             this.tabCustomer.TabIndex = 0;
             this.tabCustomer.Text = "tabCustomer";
@@ -120,9 +120,19 @@
             // nudQuantity
             // 
             this.nudQuantity.Location = new System.Drawing.Point(88, 0);
+            this.nudQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(120, 28);
             this.nudQuantity.TabIndex = 0;
+            this.nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
@@ -152,7 +162,7 @@
             this.tabAdmin.Controls.Add(this.btnAddProduct);
             this.tabAdmin.Location = new System.Drawing.Point(4, 31);
             this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(3);
             this.tabAdmin.Size = new System.Drawing.Size(518, 78);
             this.tabAdmin.TabIndex = 1;
             this.tabAdmin.Text = "tabAdmin";
@@ -166,6 +176,7 @@
             this.btnRemoveProduct.TabIndex = 2;
             this.btnRemoveProduct.Text = "Remove Product";
             this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
             // btnEditProduct
             // 
@@ -175,6 +186,7 @@
             this.btnEditProduct.TabIndex = 1;
             this.btnEditProduct.Text = "Edit Product";
             this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // btnAddProduct
             // 

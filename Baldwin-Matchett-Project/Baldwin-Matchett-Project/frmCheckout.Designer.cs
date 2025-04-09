@@ -152,6 +152,7 @@
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Remove All Items";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // groupBox1
             // 
