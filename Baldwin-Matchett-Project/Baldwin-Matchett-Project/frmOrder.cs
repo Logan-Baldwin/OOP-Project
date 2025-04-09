@@ -27,7 +27,6 @@ namespace Baldwin_Matchett_Project
             tabOrders.ItemSize = new Size(0, 1);
             tabOrders.SizeMode = TabSizeMode.Fixed;
 
-
             //testing file reading vvv
             // this reads the file, we may want to simplify it so that
             // the left lstBox reads a code, name, qty, and furhter information
@@ -57,7 +56,6 @@ namespace Baldwin_Matchett_Project
 
         }
 
-        // Need to make the listbox update the quantity
         private void btnPurchase_Click(object sender, EventArgs e)
         {
             decimal quantity = nudQuantity.Value;
@@ -70,6 +68,8 @@ namespace Baldwin_Matchett_Project
                     c.cart.Add(i.inventory[selectedItem]);
                     i.inventory[selectedItem].Quantity = i.inventory[selectedItem].Quantity - (int)quantity;
                 }
+                i.UpdateListBox(lstProducts);
+                i.HideZeroes(lstProducts);
                 lblItemsInCart.Text = "Items In Cart: " + c.cart.Count;
             }
             else

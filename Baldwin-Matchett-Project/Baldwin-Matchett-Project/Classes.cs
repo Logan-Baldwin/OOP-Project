@@ -64,7 +64,7 @@ namespace Baldwin_Matchett_Project
      */
 
 
-    static class FileHelper
+     static class FileHelper
     {
 
         /*
@@ -120,13 +120,36 @@ namespace Baldwin_Matchett_Project
                         inventorycart.Add(new VintageJewelry(code, arr[2], price, qty, age, arr[6]));
                     }
                 }
+            }
 
+        }
+        /*
+   *  ReadUsers
+   *      param: string, List<User>
+   *      returns: n/a
+   *      
+   *      Same as ReadProducts, but for users
+   *      
+   */
+        public static void ReadUsers(string path, List<User> userList)
+        {
+            StreamReader reader = new StreamReader(path);
+            int size = ReadSize(path);
+            string[] arr;
+            string userID, password, name, access;
+
+            for (int i = 0; i < size; i++)
+            {
+                arr = reader.ReadLine().Split(',');
+
+                if (Validator.ValidateItem(arr, out userID, out password, out name, out access))
+                {
+                    userList.Add(new User(userID, password, name, access));
+                }
 
             }
 
         }
-
-
 
 
     }

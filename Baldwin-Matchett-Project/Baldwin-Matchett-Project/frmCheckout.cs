@@ -14,7 +14,7 @@ namespace Baldwin_Matchett_Project
     {
         public frmCheckout()
         {
-            InitializeComponent();   
+            InitializeComponent(); 
         }
 
         private void btnClear_Click(object sender, EventArgs e)
