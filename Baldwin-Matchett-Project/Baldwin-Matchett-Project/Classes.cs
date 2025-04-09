@@ -121,7 +121,6 @@ namespace Baldwin_Matchett_Project
                     }
                 }
             }
-
         }
         /*
    *  ReadUsers
@@ -136,28 +135,25 @@ namespace Baldwin_Matchett_Project
             StreamReader reader = new StreamReader(path);
             int size = ReadSize(path);
             string[] arr;
-            string userID, password, name, access;
 
             for (int i = 0; i < size; i++)
             {
                 arr = reader.ReadLine().Split(',');
 
-                if (Validator.ValidateItem(arr, out userID, out password, out name, out access))
+                if (arr[3] == "customer")
                 {
-                    userList.Add(new User(userID, password, name, access));
+                    userList.Add(new Customer(arr[0], arr[1], arr[2]));
+                }
+                else if (arr[3] == "admin")
+                {
+                    userList.Add(new Admin(arr[0], arr[1], arr[2]));
                 }
 
             }
 
         }
 
-
     }
-
-
-
-
-
 
     static class Validator
     {

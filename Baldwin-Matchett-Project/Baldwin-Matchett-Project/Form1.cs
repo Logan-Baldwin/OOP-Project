@@ -26,7 +26,6 @@ namespace Baldwin_Matchett_Project
         {
             try
             {
-                // Forms dont seem to register any changes I make to Classes.cs
                 FileHelper.ReadUsers("users.txt", userList);
             }
             catch(Exception ex)

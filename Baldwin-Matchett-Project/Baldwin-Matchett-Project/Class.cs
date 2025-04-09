@@ -125,7 +125,28 @@ namespace Baldwin_Matchett_Project
             }
             reader.Close();
         }
+        public static void ReadUsers(string path, List<User> userList)
+        {
+            StreamReader reader = new StreamReader(path);
+            int size = ReadSize(path);
+            string[] arr;
 
+            for (int i = 0; i < size; i++)
+            {
+                arr = reader.ReadLine().Split(',');
+
+                if (arr[3] == "customer")
+                {
+                    userList.Add(new Customer(arr[0], arr[1], arr[2]));
+                }
+                else if (arr[3] == "admin")
+                {
+                    userList.Add(new Admin(arr[0], arr[1], arr[2]));
+                }
+
+            }
+
+        }
     }
 
 
