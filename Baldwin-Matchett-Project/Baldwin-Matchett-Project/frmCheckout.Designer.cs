@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lstCart = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -110,25 +110,26 @@
             this.lstCart.Location = new System.Drawing.Point(12, 31);
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(373, 228);
-            this.lstCart.TabIndex = 7;
+            this.lstCart.TabIndex = 5;
             // 
-            // button1
+            // btnPayment
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(318, 274);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 56);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Proceed To Payment";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Location = new System.Drawing.Point(318, 274);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(147, 56);
+            this.btnPayment.TabIndex = 2;
+            this.btnPayment.Text = "Proceed To Payment";
+            this.btnPayment.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(471, 274);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(147, 56);
-            this.btnExit.TabIndex = 9;
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Continue Shopping";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
@@ -138,7 +139,7 @@
             this.btnRemove.Location = new System.Drawing.Point(12, 274);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(147, 56);
-            this.btnRemove.TabIndex = 10;
+            this.btnRemove.TabIndex = 0;
             this.btnRemove.Text = "Remove Item";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
@@ -148,7 +149,7 @@
             this.btnClear.Location = new System.Drawing.Point(165, 274);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(147, 56);
-            this.btnClear.TabIndex = 11;
+            this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Remove All Items";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
@@ -160,7 +161,7 @@
             this.groupBox1.Location = new System.Drawing.Point(395, 155);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 104);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment Method";
             // 
@@ -256,8 +257,10 @@
             // 
             // frmCheckout
             // 
+            this.AcceptButton = this.btnPayment;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(691, 348);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTax);
@@ -269,7 +272,7 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -295,7 +298,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstCart;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
