@@ -43,7 +43,6 @@ namespace Baldwin_Matchett_Project
                 MessageBox.Show(ex.Message, "Error Reading File");
             }
 
-
             if(UserAccess=="customer")
             {
                 i.HideZeroes(lstProducts); //hide unavailable items if in customer view
@@ -55,7 +54,6 @@ namespace Baldwin_Matchett_Project
             }
 
         }
-
         private void btnPurchase_Click(object sender, EventArgs e)
         {
             decimal quantity = nudQuantity.Value;
@@ -78,10 +76,9 @@ namespace Baldwin_Matchett_Project
             }
            
         }
-
         private void btnViewCart_Click(object sender, EventArgs e)
         {
-            frmCheckout cart = new frmCheckout();
+            frmCheckout cart = new frmCheckout(c);
             cart.ShowDialog();
         }
 

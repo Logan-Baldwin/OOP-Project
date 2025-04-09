@@ -20,7 +20,6 @@ namespace Baldwin_Matchett_Project
         public frmLogin()
         {
             InitializeComponent();
-
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {

@@ -125,6 +125,14 @@ namespace Baldwin_Matchett_Project
             }
             reader.Close();
         }
+        /*
+*  ReadUsers
+*      param: string, List<User>
+*      returns: n/a
+*      
+*      Same as ReadProducts, but for users
+*      
+*/
         public static void ReadUsers(string path, List<User> userList)
         {
             StreamReader reader = new StreamReader(path);
@@ -281,7 +289,7 @@ namespace Baldwin_Matchett_Project
 
     }
 
-    abstract class Product
+    public abstract class Product
     {
         public int Code { get; set; }
         public string Description { get; set; }
@@ -398,7 +406,7 @@ namespace Baldwin_Matchett_Project
         }
     }
 
-    class Cart : IUpdater
+   public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
 
@@ -436,7 +444,9 @@ namespace Baldwin_Matchett_Project
             l.Items.Clear();
             foreach (Product p in cart)
             {
-                l.Items.Add(String.Format("{ 0,-25} | {1,-10} | {2, 5}", p.Description, p.Price, p.Quantity));
+                //Original format created an error, trying it with the same formatting as inventory.UpdateListBox
+                //l.Items.Add(String.Format("{ 0,-5} | {1,5} | {2, 5}", p.Description, p.Price, p.Quantity));
+               l.Items.Add(String.Format("{0,-90}{1,-10}{2, -5}", p.Description, p.Price, p.Quantity));
             }
         }
 
