@@ -98,7 +98,10 @@ namespace Baldwin_Matchett_Project
          */
         public static void ReadProducts(string path, List<Product> inventorycart)
         {
+
             StreamReader reader = new StreamReader(path);
+
+
             int size = ReadSize(path);
             string[] arr;
             int code, qty, age;
@@ -126,6 +129,7 @@ namespace Baldwin_Matchett_Project
             }
             reader.Close();
         }
+
 
         /*
         *  ReadUsers
@@ -156,6 +160,69 @@ namespace Baldwin_Matchett_Project
 
             }
             reader.Close();
+
+        }
+
+        public static void ClearFile(string path, int length)
+        {
+            StreamWriter writer = new StreamWriter(path, false);
+
+            for (int i = 0; i <= length; i++)
+            {
+                writer.WriteLine("");
+            }
+            writer.Close();
+        }
+
+        public static string[] ReadToArray(string path, int length)
+        {
+            StreamReader reader = new StreamReader(path);
+            string[] products = new string[length];
+
+            //read all products into a string[]
+            for (int i = 0; i < length; i++)
+            {
+                products[i] = reader.ReadLine();
+            }
+            reader.Close();
+            return products;
+        }
+
+        public static void AddProduct(string path, Product p)
+        {
+            StreamWriter writer = File.AppendText(path);
+            if (p is AntiqueFurniture)
+            {
+                AntiqueFurniture af = (AntiqueFurniture)p;
+                writer.WriteLine($"furniture,{af.Code},{af.Description},{af.Price},{af.Quantity},{af.Creator},{af.Origin}");
+            }
+            else if (p is VintageJewelry)
+            {
+                VintageJewelry j = (VintageJewelry)p;
+                writer.WriteLine($"furniture,{j.Code},{j.Description},{j.Price},{j.Quantity},{j.Age},{j.Metal}");
+            }
+            writer.Close();
+        }
+
+        public static void RemoveProduct(string path, Product p, int length)
+        {
+
+            string[] products = ReadToArray(path, length);
+
+            //clear the file
+            ClearFile(path, length);
+
+            StreamWriter writer = new StreamWriter(path);
+            //re-fill out the data, skipping the line to remove
+            foreach (string s in products)
+            {
+                if (!s.Contains(p.Description))
+                {
+                    writer.WriteLine(s);
+                }
+            }
+
+            writer.Close();
 
         }
 
@@ -405,7 +472,7 @@ namespace Baldwin_Matchett_Project
         }
     }
 
-    class Inventory : IUpdater
+    public class Inventory : IUpdater
     {
 
         public List<Product> inventory = new List<Product>();
@@ -419,6 +486,7 @@ namespace Baldwin_Matchett_Project
         public void UpdateListBox(ListBox l)
         {
             l.Items.Clear();
+
             foreach (Product p in inventory)
             {
                 l.Items.Add($"{p.Description}  Qty: {p.Quantity}");
@@ -476,6 +544,7 @@ namespace Baldwin_Matchett_Project
         }
         public void UpdateListBox(ListBox l)
         {
+
             l.Items.Clear();
             foreach (Product p in cart)
             {

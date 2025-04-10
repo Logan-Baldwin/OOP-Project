@@ -14,6 +14,7 @@ namespace Baldwin_Matchett_Project
     {
         Inventory i = new Inventory();
         private Cart c = new Cart();
+        string path;
         string username;
         string access;
 
@@ -27,6 +28,9 @@ namespace Baldwin_Matchett_Project
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
+
+
+
             // Hides the tab headers
             tabOrders.Appearance = TabAppearance.FlatButtons;
             tabOrders.ItemSize = new Size(0, 1);
@@ -40,16 +44,54 @@ namespace Baldwin_Matchett_Project
             {
 
                 tabOrders.SelectedIndex = 2;
-                i.HideZeroes(lstProducts); //hide unavailable items if in customer view
-
+                for (int n = 0; n < i.inventory.Count; n++)
+                {
+                    if (i.inventory[n].Quantity == 0)
+                    {
+                        lstProducts.Items.RemoveAt(n);
+                    }
+                }
             }
 
+            try
+            {
+                FileHelper.ReadProducts("inventory.txt", i.inventory);
+                path = "inventory.txt";
+            }
+            catch
+            {
 
-            //testing file reading vvv
-            // this reads the file, we may want to simplify it so that
-            // the left lstBox reads a code, name, qty, and furhter information
-            // displays while selected
-            FileHelper.ReadProducts("inventory.txt", i.inventory);
+                DialogResult dialogResult = MessageBox.Show("Inventory file not found, do you want to select an inventory file?", "Err", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    OpenFileDialog userfile = new OpenFileDialog();
+
+                    if (userfile.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            FileHelper.ReadProducts(userfile.FileName, i.inventory);
+                            path = userfile.FileName;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Invalid file, closing program.");
+                            this.Close();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("File not selected, closing program.");
+                        this.Close();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.Close();
+                }
+            }
+
             i.UpdateListBox(lstProducts);
 
 
@@ -62,9 +104,6 @@ namespace Baldwin_Matchett_Project
 
             int qty = (int)nudQuantity.Value;
 
-
-
-            //add selected item to cart
             try
             {
                 int selectedQty = i.inventory[lstProducts.SelectedIndex].Quantity;
@@ -112,21 +151,46 @@ namespace Baldwin_Matchett_Project
 
         /*
          *  Admin controls
-         */ 
+         */
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            //open form to add item
+            frmAddProduct frmAdd = new frmAddProduct(path);
+            frmAdd.ShowDialog();
 
+            //clear list
+            i.inventory.Clear();
+            //re-fill and validate list
+            FileHelper.ReadProducts(path, i.inventory);
+            lstProducts.SelectedIndex = 0;
+            i.UpdateListBox(lstProducts);
 
         }
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-
+            if (lstProducts.SelectedIndex != -1)
+            {
+                frmEditProduct edit = new frmEditProduct(this, i.inventory[lstProducts.SelectedIndex], i, path);
+                edit.ShowDialog();
+            }
         }
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
+            if (lstProducts.SelectedIndex != -1)
+            {
+                //remove within the file
+                FileHelper.RemoveProduct("inventory.txt", i.inventory[lstProducts.SelectedIndex], i.inventory.Count);
+                //clear list
+                i.inventory.Clear();
+                //re-fill and validate list
+                FileHelper.ReadProducts(path, i.inventory);
+                //update listbox, changing index as to avoid exception (index is being removed)
+                lstProducts.SelectedIndex = 0;
+                i.UpdateListBox(lstProducts);
+            }
 
         }
 
@@ -153,6 +217,15 @@ namespace Baldwin_Matchett_Project
                 lblDescription.Text += $"Material:    {selected.Metal}\n";
                 lblDescription.Text += $"Age:         {selected.Age} Years";
             }
+        }
+
+        /*
+         *  Logout btn
+         */
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

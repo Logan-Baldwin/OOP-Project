@@ -58,3 +58,17 @@ C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Ma
 C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.csproj.CoreCompileInputs.cache
 C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.exe
 C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.pdb
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.csproj.AssemblyReference.cache
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.exe
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.pdb
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmLogin.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmAddProduct.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmCheckout.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmEditProduct.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmOrder.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.Properties.Resources.resources
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.csproj.GenerateResource.cache
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin-Matchett-Project.csproj.CoreCompileInputs.cache
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.exe.config
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.exe
+C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.pdb
