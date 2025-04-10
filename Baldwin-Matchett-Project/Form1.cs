@@ -12,13 +12,18 @@ namespace Baldwin_Matchett_Project
 {
     public partial class frmLogin : Form
     {
-        Customer customer1 = new Customer("parker", "parker", "parker");
-        Customer customer2 = new Customer("logan", "logan", "logan");
-        Admin admin = new Admin("admin", "admin", "admin");
+
+
 
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -26,43 +31,21 @@ namespace Baldwin_Matchett_Project
             string userIn = txtUser.Text;
             string passIn = txtPassword.Text;
 
-            switch (userIn)
+            List<User> userlist = new List<User>();
+            FileHelper.ReadUsers("users.txt", userlist);
+
+
+            if (Validator.ValidateUser(userlist, userIn, passIn, out User loginUser))
             {
-                case "admin":
-                    if (passIn == "admin")
-                    {
-                        frmOrder order = new frmOrder(admin.Access);
-                        order.ShowDialog();
-                        break;
-                    }
-                    MessageBox.Show("Username or Password incorrect");
-                    break;
-                case "parker":
-                    if (passIn == "parker")
-                    {
-                        frmOrder order = new frmOrder(customer1.Access);
-                        order.ShowDialog();
-                        break;
-                    }
-                    MessageBox.Show("Username or Password incorrect");
-                    break;
-                case "logan":
-                    if (passIn == "logan")
-                    {
-                        frmOrder order = new frmOrder(customer2.Access);
-                        order.ShowDialog();
-                        break;
-                    }
-                    MessageBox.Show("Username or Password incorrect");
-                    break;
-                default:
-                    MessageBox.Show("Please enter your information");
-                    break;
-
-
+                frmOrder order = new frmOrder(loginUser);
+                order.ShowDialog();
             }
 
 
         }
+
+
+
+
     }
 }

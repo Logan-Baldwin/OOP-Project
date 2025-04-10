@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Baldwin_Matchett_Project
 {
@@ -126,6 +127,39 @@ namespace Baldwin_Matchett_Project
             reader.Close();
         }
 
+        /*
+        *  ReadUsers
+        *      param: string, List<User>
+        *      returns: n/a
+        *      
+        *      Same as ReadProducts, but for users
+        *      
+        */
+        public static void ReadUsers(string path, List<User> userList)
+        {
+            StreamReader reader = new StreamReader(path);
+            int size = ReadSize(path);
+            string[] arr;
+
+            for (int i = 0; i < size; i++)
+            {
+                arr = reader.ReadLine().Split(',');
+
+                if (arr[3] == "customer")
+                {
+                    userList.Add(new Customer(arr[0], arr[1], arr[2]));
+                }
+                else if (arr[3] == "admin")
+                {
+                    userList.Add(new Admin(arr[0], arr[1], arr[2]));
+                }
+
+            }
+            reader.Close();
+
+        }
+
+
     }
 
 
@@ -178,43 +212,76 @@ namespace Baldwin_Matchett_Project
          *          
          *          **strings are not passed into ValidateItem because we dont really need to validate them
          */
-        public static bool ValidateItem(string[] arr, out int code, out decimal price, out int qty, out int age)
+        public static bool ValidateItem(string[] arr, out int Code, out decimal Price, out int Qty, out int Age)
         {
             bool result = false;
-            code = 0;
-            price = 0;
-            qty = 0;
-            age = 0;
-            System.Diagnostics.Debug.WriteLine($"item {arr[0]}");
+
             //if item is furniture, validate all numerical values associated with furniture objects
             //  if ANY of Validator's Find methods fail, we know we will not be able to construct this product (ValidateItem will return false)
             if (arr[0] == "furniture")
             {
-                result = Validator.FindInt(arr[1], out code) || Validator.FindDecimal(arr[3], out price) || Validator.FindInt(arr[4], out qty);
-                System.Diagnostics.Debug.WriteLine($"Validating item {arr[1]}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindInt(arr[1], out code)}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindDecimal(arr[3], out price)}");
-                System.Diagnostics.Debug.WriteLine($"Validating item {Validator.FindInt(arr[4], out qty)}");
+                result = Validator.FindInt(arr[1], out int code) & Validator.FindDecimal(arr[3], out decimal price) & Validator.FindInt(arr[4], out int qty);
+                Code = code;
+                Price = price;
+                Qty = qty;
+                Age = 0;
             }
 
             //if item is jewelry, validate all numerical values associated with furniture objects
             //  if ANY of Validator's Find methods fail, we know we will not be able to construct this product (ValidateItem will return false)
             else if (arr[0] == "jewelry")
             {
-                result = Validator.FindInt(arr[1], out code) || Validator.FindDecimal(arr[3], out price) || Validator.FindInt(arr[4], out qty) || Validator.FindInt(arr[5], out age);
+                result = Validator.FindInt(arr[1], out int code) & Validator.FindDecimal(arr[3], out decimal price) & Validator.FindInt(arr[4], out int qty) & Validator.FindInt(arr[5], out int age);
+                Code = code;
+                Price = price;
+                Qty = qty;
+                Age = age;
+
             }
-            if (result == false)
+            else
             {
+                Code = 0;
+                Price = 0;
+                Qty = 0;
+                Age = 0;
+
                 Err(arr[1]);
             }
+
             return result;
+
         }
+
+        /*
+         *      ValidateUser()
+         *      
+         */
+        public static bool ValidateUser(List<User> userlist, string user, string passwd, out User loginuser)
+        {
+
+            foreach (User u in userlist)
+            {
+                if (u.UserID == user)
+                {
+                    if (u.Password == passwd)
+                    {
+                        loginuser = u;
+                        return true;
+                    }
+                }
+
+            }
+            loginuser = new User("n/a", "n/a", "n/a");
+            return false;
+        }
+
+
     }
 
 
 
 
-    class User
+    public class User
     {
         public string UserID { get; set; }
         public string Password { get; set; }
@@ -263,7 +330,7 @@ namespace Baldwin_Matchett_Project
 
     }
 
-    abstract class Product
+    public abstract class Product
     {
         public int Code { get; set; }
         public string Description { get; set; }
@@ -341,20 +408,20 @@ namespace Baldwin_Matchett_Project
     class Inventory : IUpdater
     {
 
-        public List<Product> inventory {  get; set; }
+        public List<Product> inventory = new List<Product>();
 
         public Inventory()
         {
             inventory = new List<Product>();
         }
-        
+
 
         public void UpdateListBox(ListBox l)
         {
             l.Items.Clear();
             foreach (Product p in inventory)
             {
-                l.Items.Add(p);
+                l.Items.Add($"{p.Description}  Qty: {p.Quantity}");
             }
         }
         public void Clear(ListBox l)
@@ -376,12 +443,10 @@ namespace Baldwin_Matchett_Project
         }
     }
 
-    class Cart : IUpdater
+    public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
-
-
-
+        public int count { get; set; }
 
         public decimal TotalCart()
         {
@@ -414,7 +479,7 @@ namespace Baldwin_Matchett_Project
             l.Items.Clear();
             foreach (Product p in cart)
             {
-                l.Items.Add(p);
+                l.Items.Add($"{p.Description}");
             }
         }
 
