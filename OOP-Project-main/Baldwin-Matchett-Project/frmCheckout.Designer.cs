@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lstCart = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -56,10 +56,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(499, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(665, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 106);
+            this.pictureBox1.Size = new System.Drawing.Size(161, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -68,10 +68,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label1.Location = new System.Drawing.Point(8, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(11, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 18);
+            this.label1.Size = new System.Drawing.Size(27, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "ID";
             // 
@@ -79,10 +78,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label2.Location = new System.Drawing.Point(64, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(85, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 18);
+            this.label2.Size = new System.Drawing.Size(57, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "Name";
             // 
@@ -90,10 +88,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label3.Location = new System.Drawing.Point(138, 4);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(184, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.Size = new System.Drawing.Size(77, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "Quantity";
             // 
@@ -101,42 +98,43 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label4.Location = new System.Drawing.Point(244, 4);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(325, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 18);
+            this.label4.Size = new System.Drawing.Size(47, 22);
             this.label4.TabIndex = 6;
             this.label4.Text = "Cost";
             // 
             // lstCart
             // 
             this.lstCart.FormattingEnabled = true;
-            this.lstCart.Location = new System.Drawing.Point(9, 25);
-            this.lstCart.Margin = new System.Windows.Forms.Padding(2);
+            this.lstCart.ItemHeight = 16;
+            this.lstCart.Location = new System.Drawing.Point(12, 31);
+            this.lstCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(281, 186);
-            this.lstCart.TabIndex = 7;
+            this.lstCart.Size = new System.Drawing.Size(373, 228);
+            this.lstCart.TabIndex = 0;
             // 
-            // button1
+            // btnPayment
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(396, 223);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 46);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Proceed To Payment";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Location = new System.Drawing.Point(528, 274);
+            this.btnPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(147, 57);
+            this.btnPayment.TabIndex = 4;
+            this.btnPayment.Text = "Proceed To Payment";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(510, 223);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Location = new System.Drawing.Point(680, 274);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(110, 46);
-            this.btnExit.TabIndex = 9;
+            this.btnExit.Size = new System.Drawing.Size(147, 57);
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Continue Shopping";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -144,11 +142,11 @@
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(9, 223);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemove.Location = new System.Drawing.Point(12, 274);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(110, 46);
-            this.btnRemove.TabIndex = 10;
+            this.btnRemove.Size = new System.Drawing.Size(147, 57);
+            this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove Item";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click_1);
@@ -156,11 +154,11 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(124, 223);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Location = new System.Drawing.Point(165, 274);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(110, 46);
-            this.btnClear.TabIndex = 11;
+            this.btnClear.Size = new System.Drawing.Size(147, 57);
+            this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Remove All Items";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
@@ -170,22 +168,22 @@
             this.groupBox1.Controls.Add(this.radGoogle);
             this.groupBox1.Controls.Add(this.radPaypal);
             this.groupBox1.Controls.Add(this.radCredit);
-            this.groupBox1.Location = new System.Drawing.Point(296, 126);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(395, 155);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(210, 84);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(280, 103);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment Method";
             // 
             // radGoogle
             // 
             this.radGoogle.AutoSize = true;
-            this.radGoogle.Location = new System.Drawing.Point(5, 64);
-            this.radGoogle.Margin = new System.Windows.Forms.Padding(2);
+            this.radGoogle.Location = new System.Drawing.Point(7, 79);
+            this.radGoogle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radGoogle.Name = "radGoogle";
-            this.radGoogle.Size = new System.Drawing.Size(80, 17);
+            this.radGoogle.Size = new System.Drawing.Size(100, 20);
             this.radGoogle.TabIndex = 2;
             this.radGoogle.TabStop = true;
             this.radGoogle.Text = "Google Pay";
@@ -194,10 +192,10 @@
             // radPaypal
             // 
             this.radPaypal.AutoSize = true;
-            this.radPaypal.Location = new System.Drawing.Point(5, 40);
-            this.radPaypal.Margin = new System.Windows.Forms.Padding(2);
+            this.radPaypal.Location = new System.Drawing.Point(7, 49);
+            this.radPaypal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radPaypal.Name = "radPaypal";
-            this.radPaypal.Size = new System.Drawing.Size(57, 17);
+            this.radPaypal.Size = new System.Drawing.Size(71, 20);
             this.radPaypal.TabIndex = 1;
             this.radPaypal.TabStop = true;
             this.radPaypal.Text = "Paypal";
@@ -206,10 +204,10 @@
             // radCredit
             // 
             this.radCredit.AutoSize = true;
-            this.radCredit.Location = new System.Drawing.Point(5, 18);
-            this.radCredit.Margin = new System.Windows.Forms.Padding(2);
+            this.radCredit.Location = new System.Drawing.Point(7, 22);
+            this.radCredit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radCredit.Name = "radCredit";
-            this.radCredit.Size = new System.Drawing.Size(107, 17);
+            this.radCredit.Size = new System.Drawing.Size(131, 20);
             this.radCredit.TabIndex = 0;
             this.radCredit.TabStop = true;
             this.radCredit.Text = "Credit/Debit Card";
@@ -219,10 +217,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label6.Location = new System.Drawing.Point(293, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(391, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 18);
+            this.label6.Size = new System.Drawing.Size(81, 22);
             this.label6.TabIndex = 13;
             this.label6.Text = "Subtotal:";
             // 
@@ -230,10 +227,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label5.Location = new System.Drawing.Point(293, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(391, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 18);
+            this.label5.Size = new System.Drawing.Size(46, 22);
             this.label5.TabIndex = 14;
             this.label5.Text = "Tax:";
             // 
@@ -241,10 +237,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label7.Location = new System.Drawing.Point(293, 80);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(391, 98);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 18);
+            this.label7.Size = new System.Drawing.Size(56, 22);
             this.label7.TabIndex = 15;
             this.label7.Text = "Total:";
             // 
@@ -252,37 +247,36 @@
             // 
             this.lblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblSubtotal.Location = new System.Drawing.Point(358, 25);
-            this.lblSubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSubtotal.Location = new System.Drawing.Point(477, 31);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(114, 18);
+            this.lblSubtotal.Size = new System.Drawing.Size(152, 22);
             this.lblSubtotal.TabIndex = 16;
             // 
             // lblTax
             // 
             this.lblTax.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblTax.Location = new System.Drawing.Point(358, 54);
-            this.lblTax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTax.Location = new System.Drawing.Point(477, 66);
             this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(114, 18);
+            this.lblTax.Size = new System.Drawing.Size(152, 22);
             this.lblTax.TabIndex = 17;
             // 
             // lblTotal
             // 
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblTotal.Location = new System.Drawing.Point(358, 80);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Location = new System.Drawing.Point(477, 98);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(114, 18);
+            this.lblTotal.Size = new System.Drawing.Size(152, 22);
             this.lblTotal.TabIndex = 18;
             // 
             // frmCheckout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnPayment;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 283);
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(841, 348);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTax);
             this.Controls.Add(this.lblSubtotal);
@@ -293,14 +287,14 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCheckout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkout - Logan, Parker";
@@ -321,7 +315,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstCart;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
