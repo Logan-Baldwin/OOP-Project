@@ -116,10 +116,11 @@ namespace Baldwin_Matchett_Project
                             c.cart.Add(i.inventory[lstProducts.SelectedIndex]);
                             c.count++;
                             i.inventory[lstProducts.SelectedIndex].Quantity--;
-                            lblItemsInCart.Text = $"Items in Cart: {c.count}";
-                            lblCost.Text = $"$ {c.TotalCart()}";
+                            //lblItemsInCart.Text = $"Items in Cart: {c.count}";
+                            //lblCost.Text = $"$ {c.TotalCart()}";
                         }
-                        i.UpdateListBox(lstProducts);
+                        //i.UpdateListBox(lstProducts);
+                        UpdateInfo();
                     }
                     else
                     {
@@ -144,9 +145,21 @@ namespace Baldwin_Matchett_Project
         {
             frmCheckout cart = new frmCheckout(c);
             cart.ShowDialog();
-            i.UpdateListBox(lstProducts);
+
+            UpdateInfo();
         }
 
+        /* Name: UpdateInfo
+        * Sent: Nothing
+        * Returned: Nothing
+        * Description: Updates the listbox and labels with new information 
+        */
+        private void UpdateInfo()
+        {
+            i.UpdateListBox(lstProducts);
+            lblItemsInCart.Text = $"Items in Cart: {c.cart.Count}";
+            lblCost.Text = $"$ {c.TotalCart()}";
+        }
 
 
         /*
@@ -200,7 +213,8 @@ namespace Baldwin_Matchett_Project
             // determine its type
             // then fill out further information
 
-
+            if(lstProducts.SelectedIndex != -1)
+            {
             if (i.inventory[lstProducts.SelectedIndex] is AntiqueFurniture)
             {
                 AntiqueFurniture selected = (AntiqueFurniture)i.inventory[lstProducts.SelectedIndex];
@@ -217,6 +231,8 @@ namespace Baldwin_Matchett_Project
                 lblDescription.Text += $"Material:    {selected.Metal}\n";
                 lblDescription.Text += $"Age:         {selected.Age} Years";
             }
+            }
+
         }
 
         /*

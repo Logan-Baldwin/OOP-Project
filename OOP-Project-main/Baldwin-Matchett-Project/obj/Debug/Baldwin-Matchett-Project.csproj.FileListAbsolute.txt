@@ -72,3 +72,5 @@ C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Proj
 C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.exe.config
 C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.exe
 C:\Users\parke\Downloads\OOP-Project-main\OOP-Project-main\Baldwin-Matchett-Project\bin\Debug\Baldwin-Matchett-Project.pdb
+C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmAddProduct.resources
+C:\Users\logan\OneDrive\Documents\GitHub\OOP-Project\OOP-Project-main\Baldwin-Matchett-Project\obj\Debug\Baldwin_Matchett_Project.frmEditProduct.resources
