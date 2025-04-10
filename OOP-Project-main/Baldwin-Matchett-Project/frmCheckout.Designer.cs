@@ -57,7 +57,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(499, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(121, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +112,7 @@
             // 
             this.lstCart.FormattingEnabled = true;
             this.lstCart.Location = new System.Drawing.Point(9, 25);
-            this.lstCart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstCart.Margin = new System.Windows.Forms.Padding(2);
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(281, 186);
             this.lstCart.TabIndex = 7;
@@ -121,45 +121,49 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(396, 223);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 46);
             this.button1.TabIndex = 8;
             this.button1.Text = "Proceed To Payment";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(510, 223);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(110, 46);
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Continue Shopping";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.Location = new System.Drawing.Point(9, 223);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(110, 46);
             this.btnRemove.TabIndex = 10;
             this.btnRemove.Text = "Remove Item";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click_1);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(124, 223);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(110, 46);
             this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Remove All Items";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
             // 
             // groupBox1
             // 
@@ -167,9 +171,9 @@
             this.groupBox1.Controls.Add(this.radPaypal);
             this.groupBox1.Controls.Add(this.radCredit);
             this.groupBox1.Location = new System.Drawing.Point(296, 126);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(210, 84);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
@@ -179,7 +183,7 @@
             // 
             this.radGoogle.AutoSize = true;
             this.radGoogle.Location = new System.Drawing.Point(5, 64);
-            this.radGoogle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radGoogle.Margin = new System.Windows.Forms.Padding(2);
             this.radGoogle.Name = "radGoogle";
             this.radGoogle.Size = new System.Drawing.Size(80, 17);
             this.radGoogle.TabIndex = 2;
@@ -191,7 +195,7 @@
             // 
             this.radPaypal.AutoSize = true;
             this.radPaypal.Location = new System.Drawing.Point(5, 40);
-            this.radPaypal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radPaypal.Margin = new System.Windows.Forms.Padding(2);
             this.radPaypal.Name = "radPaypal";
             this.radPaypal.Size = new System.Drawing.Size(57, 17);
             this.radPaypal.TabIndex = 1;
@@ -203,7 +207,7 @@
             // 
             this.radCredit.AutoSize = true;
             this.radCredit.Location = new System.Drawing.Point(5, 18);
-            this.radCredit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radCredit.Margin = new System.Windows.Forms.Padding(2);
             this.radCredit.Name = "radCredit";
             this.radCredit.Size = new System.Drawing.Size(107, 17);
             this.radCredit.TabIndex = 0;
@@ -296,7 +300,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCheckout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkout - Logan, Parker";

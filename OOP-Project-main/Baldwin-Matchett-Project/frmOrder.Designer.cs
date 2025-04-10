@@ -61,6 +61,7 @@
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(417, 238);
             this.lstProducts.TabIndex = 2;
+            this.lstProducts.SelectedIndexChanged += new System.EventHandler(this.lstProducts_SelectedIndexChanged_1);
             // 
             // lblDescription
             // 
@@ -71,7 +72,6 @@
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(259, 172);
             this.lblDescription.TabIndex = 3;
-            this.lblDescription.Text = "THIS ISNT CHANGED ANYMORE ON INDEX CHANGE IDK WHY";
             // 
             // label2
             // 

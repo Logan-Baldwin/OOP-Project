@@ -25,10 +25,6 @@ namespace Baldwin_Matchett_Project
             FillLabels();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
         /* Name: ClearAll
         * Sent: Nothing
         * Returned: Nothing
@@ -43,14 +39,6 @@ namespace Baldwin_Matchett_Project
             lblTotal.Text = "";
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            int selectedItem = lstCart.SelectedIndex;
-            c.cart.RemoveAt(selectedItem);
-            lstCart.Items.RemoveAt(selectedItem);
-            c.UpdateListBox(lstCart);
-            FillLabels();
-        }
         /* Name: FillLabels
         * Sent: Nothing
         * Returned: Nothing
@@ -69,12 +57,26 @@ namespace Baldwin_Matchett_Project
             lblTotal.Text = "$" + total.ToString();
         }
 
-        private void lstCart_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnClear_Click_1(object sender, EventArgs e)
         {
+            ClearAll();
+        }
+
+        private void btnRemove_Click_1(object sender, EventArgs e)
+        { 
+            try
+            {
+                int selectedItem = lstCart.SelectedIndex;
+                c.cart.RemoveAt(selectedItem);
+                lstCart.Items.RemoveAt(selectedItem);
+                c.UpdateListBox(lstCart);
+                FillLabels();
+            }
+            catch { }
 
         }
 
-        private void btnPayment_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             string total = lblTotal.Text;
             if (total != "")
@@ -83,6 +85,11 @@ namespace Baldwin_Matchett_Project
                 MessageBox.Show("Please add items on the previous screen", "No Items In Cart");
 
             ClearAll();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

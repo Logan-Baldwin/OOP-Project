@@ -107,30 +107,7 @@ namespace Baldwin_Matchett_Project
             cart.ShowDialog();
         }
 
-        private void lstProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // get currently selected product
-            // determine its type
-            // then fill out further information
 
-
-            if (i.inventory[lstProducts.SelectedIndex] is AntiqueFurniture)
-            {
-                AntiqueFurniture selected = (AntiqueFurniture)i.inventory[lstProducts.SelectedIndex];
-                lblDescription.Text =  $"Item Code:   {selected.Code}\n";
-                lblDescription.Text += $"Price:       ${selected.Price}\n";
-                lblDescription.Text += $"Creator:     {selected.Creator}\n";
-                lblDescription.Text += $"Origin:      {selected.Origin}";
-            }
-            if (i.inventory[lstProducts.SelectedIndex] is VintageJewelry)
-            {
-                VintageJewelry selected = (VintageJewelry)i.inventory[lstProducts.SelectedIndex];
-                lblDescription.Text =  $"Item Code:   {selected.Code}\n";
-                lblDescription.Text += $"Price:       ${selected.Price}\n";
-                lblDescription.Text += $"Material:    {selected.Metal}\n";
-                lblDescription.Text += $"Age:         {selected.Age} Years";
-            }
-        }
 
         /*
          *  Admin controls
@@ -150,6 +127,31 @@ namespace Baldwin_Matchett_Project
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lstProducts_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            // get currently selected product
+            // determine its type
+            // then fill out further information
+
+
+            if (i.inventory[lstProducts.SelectedIndex] is AntiqueFurniture)
+            {
+                AntiqueFurniture selected = (AntiqueFurniture)i.inventory[lstProducts.SelectedIndex];
+                lblDescription.Text = $"Item Code:   {selected.Code}\n";
+                lblDescription.Text += $"Price:       ${selected.Price}\n";
+                lblDescription.Text += $"Creator:     {selected.Creator}\n";
+                lblDescription.Text += $"Origin:      {selected.Origin}";
+            }
+            if (i.inventory[lstProducts.SelectedIndex] is VintageJewelry)
+            {
+                VintageJewelry selected = (VintageJewelry)i.inventory[lstProducts.SelectedIndex];
+                lblDescription.Text = $"Item Code:   {selected.Code}\n";
+                lblDescription.Text += $"Price:       ${selected.Price}\n";
+                lblDescription.Text += $"Material:    {selected.Metal}\n";
+                lblDescription.Text += $"Age:         {selected.Age} Years";
+            }
         }
     }
 }
