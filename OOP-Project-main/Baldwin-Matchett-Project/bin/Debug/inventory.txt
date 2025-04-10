@@ -6,4 +6,3 @@ jewelry,005,Antique English 15kt Gold Locket,4200.00,1,135,Gold
 furniture,007,Mid-Victorian Burled Wood Credenza with Bronze Hardware,2600.00,1,Oliver Morris,Victorian England
 furniture,008,18th Century Italian Gilt Wood Mirror with Floral Decoration,2400.00,1,Lorenzo Rossi,Baroque Italy
 furniture,6,French Empire love seat in Carved Mahogany,3500.00,1,Gabriel Boucher,Bourbon Restoration France
-furniture,9,20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror,1400.00,1,Thomas Murphy, Edwardian Ireland

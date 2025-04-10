@@ -252,6 +252,7 @@
             // 
             // btnLogOut
             // 
+            this.btnLogOut.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(728, 420);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -281,6 +282,7 @@
             this.Name = "frmOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order - Logan, Parker";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmOrder_Load);
             this.tabOrders.ResumeLayout(false);
             this.tabCustomer.ResumeLayout(false);
