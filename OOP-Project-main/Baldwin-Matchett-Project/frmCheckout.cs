@@ -32,6 +32,7 @@ namespace Baldwin_Matchett_Project
         */
         private void ClearAll(string type)
         {
+            // If the user removes all items instead of purchasing, their quantities will go back up
             if(type == "return")
             {
                 for (int i = 0; i < lstCart.Items.Count; i++)
@@ -96,8 +97,6 @@ namespace Baldwin_Matchett_Project
 
             ClearAll(type);
         }
-
-
 
         private void btnExit_Click(object sender, EventArgs e)
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Baldwin_Matchett_Project
 {
@@ -28,9 +29,6 @@ namespace Baldwin_Matchett_Project
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
-
-
-
             // Hides the tab headers
             tabOrders.Appearance = TabAppearance.FlatButtons;
             tabOrders.ItemSize = new Size(0, 1);
@@ -78,7 +76,6 @@ namespace Baldwin_Matchett_Project
                             MessageBox.Show("Invalid file, closing program.");
                             this.Close();
                         }
-
                     }
                     else
                     {
@@ -91,13 +88,8 @@ namespace Baldwin_Matchett_Project
                     this.Close();
                 }
             }
-
             i.UpdateListBox(lstProducts);
-
-
-
         }
-
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
@@ -130,13 +122,7 @@ namespace Baldwin_Matchett_Project
             {
                 MessageBox.Show("No item selected", "err");
             }
-
-
-
-
-
         }
-
 
         private void btnViewCart_Click(object sender, EventArgs e)
         {
@@ -157,7 +143,6 @@ namespace Baldwin_Matchett_Project
             lblItemsInCart.Text = $"Items in Cart: {c.cart.Count}";
             lblCost.Text = $"$ {c.TotalCart()}";
         }
-
 
         /*
          *  Admin controls
@@ -201,9 +186,7 @@ namespace Baldwin_Matchett_Project
                 lstProducts.SelectedIndex = 0;
                 i.UpdateListBox(lstProducts);
             }
-
         }
-
         private void lstProducts_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             // get currently selected product
@@ -229,16 +212,15 @@ namespace Baldwin_Matchett_Project
                 lblDescription.Text += $"Age:         {selected.Age} Years";
             }
             }
-
         }
-
         /*
-         *  Logout btn
-         */
-        private void button1_Click(object sender, EventArgs e)
+        *  Logout btn
+        */
+
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
+
     }
 }
