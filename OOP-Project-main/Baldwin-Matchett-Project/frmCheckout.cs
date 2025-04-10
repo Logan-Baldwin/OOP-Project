@@ -26,12 +26,19 @@ namespace Baldwin_Matchett_Project
         }
 
         /* Name: ClearAll
-        * Sent: Nothing
+        * Sent: string 
         * Returned: Nothing
         * Description: Empties the listbox, cart, and labels
         */
-        private void ClearAll()
+        private void ClearAll(string type)
         {
+            if(type == "return")
+            {
+                for (int i = 0; i < lstCart.Items.Count; i++)
+                {
+                    c.cart[i].Quantity += 1;
+                }
+            }
             c.cart.Clear();
             lstCart.Items.Clear();
             lblSubtotal.Text = "";
@@ -59,7 +66,8 @@ namespace Baldwin_Matchett_Project
 
         private void btnClear_Click_1(object sender, EventArgs e)
         {
-            ClearAll();
+            string type = "return";
+            ClearAll(type);
         }
 
         private void btnRemove_Click_1(object sender, EventArgs e)
@@ -67,6 +75,7 @@ namespace Baldwin_Matchett_Project
             try
             {
                 int selectedItem = lstCart.SelectedIndex;
+                c.cart[selectedItem].Quantity += 1;
                 c.cart.RemoveAt(selectedItem);
                 lstCart.Items.RemoveAt(selectedItem);
                 c.UpdateListBox(lstCart);
@@ -78,13 +87,14 @@ namespace Baldwin_Matchett_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string type = "purchase";
             string total = lblTotal.Text;
             if (total != "")
                 MessageBox.Show("Thank you for purchasing your order for " + total, "Purchase Succesful");
             else
                 MessageBox.Show("Please add items on the previous screen", "No Items In Cart");
 
-            ClearAll();
+            ClearAll(type);
         }
 
 

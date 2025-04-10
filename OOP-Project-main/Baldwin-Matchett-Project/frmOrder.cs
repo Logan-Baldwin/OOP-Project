@@ -105,6 +105,7 @@ namespace Baldwin_Matchett_Project
         {
             frmCheckout cart = new frmCheckout(c);
             cart.ShowDialog();
+            i.UpdateListBox(lstProducts);
         }
 
 
