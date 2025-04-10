@@ -116,10 +116,7 @@ namespace Baldwin_Matchett_Project
                             c.cart.Add(i.inventory[lstProducts.SelectedIndex]);
                             c.count++;
                             i.inventory[lstProducts.SelectedIndex].Quantity--;
-                            //lblItemsInCart.Text = $"Items in Cart: {c.count}";
-                            //lblCost.Text = $"$ {c.TotalCart()}";
                         }
-                        //i.UpdateListBox(lstProducts);
                         UpdateInfo();
                     }
                     else

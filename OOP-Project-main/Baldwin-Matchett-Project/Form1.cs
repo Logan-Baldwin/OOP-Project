@@ -30,17 +30,26 @@ namespace Baldwin_Matchett_Project
         {
             string userIn = txtUser.Text;
             string passIn = txtPassword.Text;
-
-
-
-
-
-            if (Validator.ValidateUser(users, userIn, passIn, out User loginUser))
+            if(userIn == "") 
+            {
+                MessageBox.Show("Please enter your username", "Login Failed");
+                txtUser.Focus();
+            }
+            else if(passIn == "")
+            {
+                MessageBox.Show("Please enter your password", "Login Failed");
+                txtUser.Focus();
+            }
+            else if (Validator.ValidateUser(users, userIn, passIn, out User loginUser))
             {
                 frmOrder order = new frmOrder(loginUser);
                 order.ShowDialog();
             }
-
+            else
+            {
+                MessageBox.Show("No user with that name and password", "Login Failed");
+                txtUser.Focus();
+            }
 
 
 
