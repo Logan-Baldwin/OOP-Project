@@ -20,6 +20,38 @@ namespace Baldwin_Matchett_Project
             InitializeComponent();
         }
 
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string userIn = txtUser.Text;
+            string passIn = txtPassword.Text;
+            if (userIn == "")
+            {
+                MessageBox.Show("Please enter your username", "Login Failed");
+                txtUser.Focus();
+            }
+            else if (passIn == "")
+            {
+                MessageBox.Show("Please enter your password", "Login Failed");
+                txtUser.Focus();
+            }
+            else if (Validator.ValidateUser(users, userIn, passIn, out User loginUser))
+            {
+                frmOrder order = new frmOrder(loginUser);
+                order.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No user with that name and password", "Login Failed");
+                txtUser.Focus();
+            }
+        }
+
         private void frmLogin_Load_1(object sender, EventArgs e)
         {
             txtUser.Clear();
@@ -65,31 +97,9 @@ namespace Baldwin_Matchett_Project
             }
         }
 
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            string userIn = txtUser.Text;
-            string passIn = txtPassword.Text;
-            if(userIn == "") 
-            {
-                MessageBox.Show("Please enter your username", "Login Failed");
-                txtUser.Focus();
-            }
-            else if(passIn == "")
-            {
-                MessageBox.Show("Please enter your password", "Login Failed");
-                txtUser.Focus();
-            }
-            else if (Validator.ValidateUser(users, userIn, passIn, out User loginUser))
-            {
-                frmOrder order = new frmOrder(loginUser);
-                order.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("No user with that name and password", "Login Failed");
-                txtUser.Focus();
-            }
+
 
         }
     }

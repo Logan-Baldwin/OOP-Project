@@ -13,14 +13,22 @@ namespace Baldwin_Matchett_Project
     public partial class frmCheckout : Form
     {
         Cart c;
-        public frmCheckout(Cart cart)
+        Inventory i;
+        string path;
+        int length;
+        public frmCheckout(Cart cart, string Path, Inventory I)
         {
             InitializeComponent();
             c = cart;
-
+            path = Path;
+            i = I;
         }
         private void frmCheckout_Load(object sender, EventArgs e)
         {
+            foreach(Product p in c.cart)
+            {
+                System.Diagnostics.Debug.WriteLine($"Product code {p.Code} is in the cart with a quantity of {p.Quantity}");
+            }
             c.UpdateListBox(lstCart);
             FillLabels();
         }
@@ -35,9 +43,15 @@ namespace Baldwin_Matchett_Project
             // If the user removes all items instead of purchasing, their quantities will go back up
             if(type == "return")
             {
-                for (int i = 0; i < lstCart.Items.Count; i++)
+                for (int n = 0; n < lstCart.Items.Count; n++)
                 {
-                    c.cart[i].Quantity += 1;
+                    for(int x = 0; x < i.inventory.Count; x++)
+                    {
+                        if (i.inventory[x].Code == c.cart[n].Code)
+                        {
+                            i.inventory[x].Quantity = c.cart[n].Quantity;
+                        }
+                    }
                 }
             }
             c.cart.Clear();
@@ -75,11 +89,27 @@ namespace Baldwin_Matchett_Project
         { 
             try
             {
+
+                for (int n = 0; n < lstCart.Items.Count; n++)
+                {
+                    for (int x = 0; x < i.inventory.Count; x++)
+                    {
+                        if (i.inventory[x].Code == c.cart[n].Code)
+                        {
+                            i.inventory[x].Quantity = c.cart[n].Quantity;
+                        }
+                    }
+                }
+
+
                 int selectedItem = lstCart.SelectedIndex;
                 c.cart[selectedItem].Quantity += 1;
                 c.cart.RemoveAt(selectedItem);
                 lstCart.Items.RemoveAt(selectedItem);
                 c.UpdateListBox(lstCart);
+
+
+
                 FillLabels();
             }
             catch { }
@@ -91,9 +121,23 @@ namespace Baldwin_Matchett_Project
             string type = "purchase";
             string total = lblTotal.Text;
             if (total != "")
+            {
                 MessageBox.Show("Thank you for purchasing your order for " + total, "Purchase Succesful");
+                Product lastRemoved = null;
+                for (int n = 0; n < c.cart.Count; n++)
+                {
+                    FileHelper.RemoveByQty(path, c.cart[n], length);
+                    lastRemoved = c.cart[n];
+                    c.cart.RemoveAt(n);
+                }
+
+                
+            }
             else
+            {
                 MessageBox.Show("Please add items on the previous screen", "No Items In Cart");
+            }
+
 
             ClearAll(type);
         }

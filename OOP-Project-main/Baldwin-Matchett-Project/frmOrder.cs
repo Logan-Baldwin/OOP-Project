@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace Baldwin_Matchett_Project
 {
@@ -29,6 +28,9 @@ namespace Baldwin_Matchett_Project
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
+
+
+
             // Hides the tab headers
             tabOrders.Appearance = TabAppearance.FlatButtons;
             tabOrders.ItemSize = new Size(0, 1);
@@ -76,6 +78,7 @@ namespace Baldwin_Matchett_Project
                             MessageBox.Show("Invalid file, closing program.");
                             this.Close();
                         }
+
                     }
                     else
                     {
@@ -88,49 +91,81 @@ namespace Baldwin_Matchett_Project
                     this.Close();
                 }
             }
+
             i.UpdateListBox(lstProducts);
+
         }
+
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
-
+            int index = lstProducts.SelectedIndex;
             int qty = (int)nudQuantity.Value;
+
+            Product clone;
 
             try
             {
+                Product product = i.inventory[index];
+                if (product is AntiqueFurniture)
+                {
+                    clone = (AntiqueFurniture)product.Clone();
+                }
+                else
+                {
+                    clone = (VintageJewelry)product.Clone();
+                }
+
+                System.Diagnostics.Debug.WriteLine($"item being added to cart has qty of {clone.Quantity}");
+
                 int selectedQty = i.inventory[lstProducts.SelectedIndex].Quantity;
+
                 if (selectedQty > 0)
                 {
                     if (selectedQty >= qty)
                     {
-                        for (int n = qty; n > 0; n--)
+                        if (c.cart.Contains(clone))      // if cart already contains this product 
                         {
-                            c.cart.Add(i.inventory[lstProducts.SelectedIndex]);
-                            c.count++;
-                            i.inventory[lstProducts.SelectedIndex].Quantity--;
+                            //change quantity of item in cart
+                            c.cart[c.cart.IndexOf(clone)].Quantity += qty;
+                            //change quantity of item in inventory
+                            i.inventory[c.cart.IndexOf(product)].Quantity -= qty;
+                        }
+                        else    // if it does not contain this product yet
+                        {
+                            //add clone to cart
+                            clone.Quantity = qty;
+                            c.cart.Add(clone);
+                            //change quantity of item in inventory
+                            i.inventory[i.inventory.IndexOf(product)].Quantity -= qty;
+
+
+
                         }
                         UpdateInfo();
                     }
-                    else
-                    {
-                        MessageBox.Show("That amount is not available to order", "err");
-                    }
-
+                }
+                else
+                {
+                    MessageBox.Show("That amount is not available to order", "err");
                 }
             }
             catch
             {
                 MessageBox.Show("No item selected", "err");
-            }
+            } 
         }
+
 
         private void btnViewCart_Click(object sender, EventArgs e)
         {
-            frmCheckout cart = new frmCheckout(c);
+            frmCheckout cart = new frmCheckout(c, path, i);
             cart.ShowDialog();
+            lblCost.Text = $"$ {c.TotalCart()}";
 
             UpdateInfo();
         }
+
 
         /* Name: UpdateInfo
         * Sent: Nothing
@@ -143,6 +178,8 @@ namespace Baldwin_Matchett_Project
             lblItemsInCart.Text = $"Items in Cart: {c.cart.Count}";
             lblCost.Text = $"$ {c.TotalCart()}";
         }
+
+
 
         /*
          *  Admin controls
@@ -177,50 +214,49 @@ namespace Baldwin_Matchett_Project
             if (lstProducts.SelectedIndex != -1)
             {
                 //remove within the file
-                FileHelper.RemoveProduct("inventory.txt", i.inventory[lstProducts.SelectedIndex], i.inventory.Count);
+                FileHelper.RemoveProduct(path, i.inventory[lstProducts.SelectedIndex], i.inventory.Count);
                 //clear list
                 i.inventory.Clear();
                 //re-fill and validate list
                 FileHelper.ReadProducts(path, i.inventory);
                 //update listbox, changing index as to avoid exception (index is being removed)
                 lstProducts.SelectedIndex = 0;
-                i.UpdateListBox(lstProducts);
+                UpdateInfo();
             }
+
         }
+
         private void lstProducts_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             // get currently selected product
             // determine its type
             // then fill out further information
 
-            if(lstProducts.SelectedIndex != -1)
+            if (lstProducts.SelectedIndex != -1)
             {
-            if (i.inventory[lstProducts.SelectedIndex] is AntiqueFurniture)
-            {
-                AntiqueFurniture selected = (AntiqueFurniture)i.inventory[lstProducts.SelectedIndex];
-                lblDescription.Text = $"Item Code:   {selected.Code}\n";
-                lblDescription.Text += $"Price:       ${selected.Price}\n";
-                lblDescription.Text += $"Creator:     {selected.Creator}\n";
-                lblDescription.Text += $"Origin:      {selected.Origin}";
+                if (i.inventory[lstProducts.SelectedIndex] is AntiqueFurniture)
+                {
+                    AntiqueFurniture selected = (AntiqueFurniture)i.inventory[lstProducts.SelectedIndex];
+                    lblDescription.Text  = $"Item Code:   {selected.Code}\n";
+                    lblDescription.Text += $"Price:       ${selected.Price}\n";
+                    lblDescription.Text += $"Creator:     {selected.Creator}\n";
+                    lblDescription.Text += $"Origin:      {selected.Origin}";
+                }
+                if (i.inventory[lstProducts.SelectedIndex] is VintageJewelry)
+                {
+                    VintageJewelry selected = (VintageJewelry)i.inventory[lstProducts.SelectedIndex];
+                    lblDescription.Text  = $"Item Code:   {selected.Code}\n";
+                    lblDescription.Text += $"Price:       ${selected.Price}\n";
+                    lblDescription.Text += $"Material:    {selected.Metal}\n";
+                    lblDescription.Text += $"Age:         {selected.Age} Years";
+                }
             }
-            if (i.inventory[lstProducts.SelectedIndex] is VintageJewelry)
-            {
-                VintageJewelry selected = (VintageJewelry)i.inventory[lstProducts.SelectedIndex];
-                lblDescription.Text = $"Item Code:   {selected.Code}\n";
-                lblDescription.Text += $"Price:       ${selected.Price}\n";
-                lblDescription.Text += $"Material:    {selected.Metal}\n";
-                lblDescription.Text += $"Age:         {selected.Age} Years";
-            }
-            }
+
         }
-        /*
-        *  Logout btn
-        */
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }

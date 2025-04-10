@@ -174,6 +174,43 @@ namespace Baldwin_Matchett_Project
             writer.Close();
         }
 
+        public static void RemoveByQty(string path, Product p, int length)
+        {
+            string[] products = ReadToArray(path, length);
+
+            //clear the file
+            ClearFile(path, length);
+
+            StreamWriter writer = new StreamWriter(path);
+            //re-fill out the data, skipping the line to remove
+
+            // write all unchanged products back into inventory
+            // insert the altered quantity product with it's new quantity
+            foreach (string s in products)
+            { 
+                if (!s.Contains(p.Description))
+                {
+                    writer.WriteLine(s);
+                }
+                else
+                {
+                    if(p is AntiqueFurniture)
+                    {
+                        AntiqueFurniture af = (AntiqueFurniture)p;
+                        writer.WriteLine($"furniture,{af.Code},{af.Description},{af.Price},{af.Quantity},{af.Creator},{af.Origin}");
+                    }
+                    if (p is VintageJewelry)
+                    {
+                        VintageJewelry j = (VintageJewelry)p;
+                        writer.WriteLine($"jewelry,{j.Code},{j.Description},{j.Price},{p.Quantity - j.Quantity},{j.Age},{j.Metal}");
+                    }
+
+                }
+
+            }
+            writer.Close();
+        }
+
         public static string[] ReadToArray(string path, int length)
         {
             StreamReader reader = new StreamReader(path);
@@ -397,7 +434,7 @@ namespace Baldwin_Matchett_Project
 
     }
 
-    public abstract class Product
+    public abstract class Product : ICloneable
     {
         public int Code { get; set; }
         public string Description { get; set; }
@@ -412,11 +449,13 @@ namespace Baldwin_Matchett_Project
             this.Quantity = instock;
         }
 
+        
+
         public override abstract string ToString();
 
         public abstract bool IsAvailable();
 
-
+        public abstract object Clone();
     }
 
     sealed class VintageJewelry : Product
@@ -437,6 +476,14 @@ namespace Baldwin_Matchett_Project
             else
             { return false; }
         }
+
+        public override object Clone()
+        {
+            VintageJewelry newItem = new VintageJewelry(this.Code,this.Description,this.Price,this.Quantity,this.Age,this.Metal);
+            return newItem;
+        }
+
+
 
         public override string ToString()
         {
@@ -465,11 +512,19 @@ namespace Baldwin_Matchett_Project
             { return false; }
         }
 
+        public override object Clone()
+        {
+            AntiqueFurniture newItem = new AntiqueFurniture(this.Code, this.Description, this.Price, this.Quantity, this.Creator, this.Origin);
+            return newItem;
+        }
+
         public override string ToString()
         {
             return "ProductCode: " + this.Code + "  Description: " + this.Description + "  Price: $" + this.Price +
                     "   Qty: " + this.Quantity + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
         }
+
+
     }
 
     public class Inventory : IUpdater
@@ -548,7 +603,7 @@ namespace Baldwin_Matchett_Project
             l.Items.Clear();
             foreach (Product p in cart)
             {
-                l.Items.Add($"{p.Description}");
+                l.Items.Add($"{p.Description}   qty: {p.Quantity}");
             }
         }
 
