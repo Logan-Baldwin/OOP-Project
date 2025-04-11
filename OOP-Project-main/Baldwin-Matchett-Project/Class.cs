@@ -564,27 +564,35 @@ namespace Baldwin_Matchett_Project
             this.Price = price;
             this.Quantity = instock;
         }
+
+        
+
         public override abstract string ToString();
 
         public abstract bool IsAvailable();
 
         public abstract object Clone();
 
+
+
+
+
     }
-    /* |======================================================|
-     * |                   VintageJewelry                     |
-     * |------------------------------------------------------|
-     * |+Age:int                                              |
-     * |+Metal:string                                         |
-     * |+VintageJewelry:object                                |
-     * |------------------------------------------------------|
-     * |+IsAvailable():boolean                                |
-     * |+ToString():string                                    |
-     * |+Clone():object                                       |
-     * |+overload>(A:vintageJewelry, B:vintageJewelry):product|
-     * |+overload<(A:vintageJewelry, B:vintageJewelry):product|
-     * |======================================================|
-     */
+
+     /* |======================================================|
+      * |                   VintageJewelry                     |
+      * |------------------------------------------------------|
+      * |+Age:int                                              |
+      * |+Metal:string                                         |
+      * |+VintageJewelry:object                                |
+      * |------------------------------------------------------|
+      * |+IsAvailable():boolean                                |
+      * |+ToString():string                                    |
+      * |+Clone():object                                       |
+      * |+overload>(A:vintageJewelry, B:vintageJewelry):product|
+      * |+overload<(A:vintageJewelry, B:vintageJewelry):product|
+      * |======================================================|
+      */
     sealed class VintageJewelry : Product
     {
         public int Age { get; set; }
@@ -615,13 +623,13 @@ namespace Baldwin_Matchett_Project
          *   
          *      the 'arrow' points to the product that is being cloned, the other being the product that will become the clone
          */
-        public static Product operator >(VintageJewelry A, VintageJewelry B)
+        public static Product operator >(VintageJewelry B, VintageJewelry A)
         {
             return (Product)A.Clone();
         }
         public static Product operator <(VintageJewelry A, VintageJewelry B)
         {
-            return (Product)B.Clone();
+            return (Product)A.Clone();
         }
 
         public override string ToString()
@@ -632,19 +640,19 @@ namespace Baldwin_Matchett_Project
 
     }
     /*|==========================================================|
-    * |                     AntiqueFurniture                     |
-    * |----------------------------------------------------------|
-    * |+Creator:string                                           |
-    * |+Origin:string                                            |  
-    * |+AntiqueFurniture:object                                  |
-    * |----------------------------------------------------------|
-    * |+IsAvailable():boolean                                    |
-    * |+ToString():string                                        |
-    * |+Clone():object                                           |
-    * |+overload>(A:antiqueFurniture, B:antiqueFurniture):product|
-    * |+overload<(A:antiqueFurniture, B:antiqueFurniture):product|
-    * |==========================================================|
-    */
+     * |                     AntiqueFurniture                     |
+     * |----------------------------------------------------------|
+     * |+Creator:string                                           |
+     * |+Origin:string                                            |  
+     * |+AntiqueFurniture:object                                  |
+     * |----------------------------------------------------------|
+     * |+IsAvailable():boolean                                    |
+     * |+ToString():string                                        |
+     * |+Clone():object                                           |
+     * |+overload>(A:antiqueFurniture, B:antiqueFurniture):product|
+     * |+overload<(A:antiqueFurniture, B:antiqueFurniture):product|
+     * |==========================================================|
+     */
     sealed class AntiqueFurniture : Product
     {
         public string Creator { get; set; }
@@ -729,31 +737,22 @@ namespace Baldwin_Matchett_Project
                 l.Items.Remove(p);
             }
         }
-        public void HideZeroes(ListBox l)
-        {
-            foreach (Product p in l.Items)
-            {
-                if (p.Quantity == 0)
-                {
-                    l.Items.Remove(p);
-                }
-            }
-        }
+        
     }
     /* |=====================================|
-     * |                Cart                 |
-     * |-------------------------------------|
-     * |+cart:list                           |
-     * |+count:int                           |
-     * |-------------------------------------|
-     * |+TotalCart():decimal                 |
-     * |+ClearCart(total:decimal)            |
-     * |+Clear(l:listbox)                    |
-     * |+UpdateListBox(l:listbox)            |
-     * |+HideZeroes(l:listbox)               |
-     * |+overload+(c:cart, p:product):product|
-     * |=====================================|
-     */
+      * |                Cart                 |
+      * |-------------------------------------|
+      * |+cart:list                           |
+      * |+count:int                           |
+      * |-------------------------------------|
+      * |+TotalCart():decimal                 |
+      * |+ClearCart(total:decimal)            |
+      * |+Clear(l:listbox)                    |
+      * |+UpdateListBox(l:listbox)            |
+      * |+HideZeroes(l:listbox)               |
+      * |+overload+(c:cart, p:product):product|
+      * |=====================================|
+      */
     public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
