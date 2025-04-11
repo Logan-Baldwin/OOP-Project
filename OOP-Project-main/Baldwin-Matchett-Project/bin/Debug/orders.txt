@@ -70,3 +70,25 @@ Subtotal:  $2400.00
 Tax (15%): $36.00000
 Total: $2436.00000
 ************************************************************
+************************************************************
+Order Receipt for User 'logan'
+************************************************************
+Items in order:
+Code: 7    Desc: Mid-Victorian Burled Wood Credenza with Bronze Hardware
+Qty Ordered: 1    Price/item: 2600.00
+
+Subtotal:  $2600.00
+Tax (15%): $390.0000
+Total: $2990.0000
+************************************************************
+************************************************************
+Order Receipt for User 'logan'
+************************************************************
+Items in order:
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 1    Price/item: 2000.00
+
+Subtotal:  $2000.00
+Tax (15%): $300.0000
+Total: $2300.0000
+************************************************************
