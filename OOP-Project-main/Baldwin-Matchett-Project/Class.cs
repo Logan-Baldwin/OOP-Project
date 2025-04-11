@@ -572,6 +572,11 @@ namespace Baldwin_Matchett_Project
         public abstract bool IsAvailable();
 
         public abstract object Clone();
+
+
+
+
+
     }
     /* |======================|
      * |   VintageJewelry     |
@@ -583,6 +588,8 @@ namespace Baldwin_Matchett_Project
      * |+IsAvailable():boolean|
      * |+ToString():string    |
      * |+Clone():object       |
+     * |+overload>:           |
+     * |     VintageJewelry   |
      * |======================|
      */
     sealed class VintageJewelry : Product
@@ -610,7 +617,19 @@ namespace Baldwin_Matchett_Project
             return newItem;
         }
 
-
+        /*
+         *   '<' AND '>' operators are overloaded to perform Clone()
+         *   
+         *      the 'arrow' points to the product that is being cloned, the other being the product that will become the clone
+         */
+        public static Product operator >(VintageJewelry A, VintageJewelry B)
+        {
+            return (Product)A.Clone();
+        }
+        public static Product operator <(VintageJewelry A, VintageJewelry B)
+        {
+            return (Product)B.Clone();
+        }
 
         public override string ToString()
         {
@@ -629,6 +648,8 @@ namespace Baldwin_Matchett_Project
     * |+IsAvailable():boolean  |
     * |+ToString():string      |
     * |+Clone():object         |
+    * |+overload>:             |
+    * |     AntiqueFurniture   |
     * |========================|
     */
     sealed class AntiqueFurniture : Product
@@ -654,6 +675,20 @@ namespace Baldwin_Matchett_Project
         {
             AntiqueFurniture newItem = new AntiqueFurniture(this.Code, this.Description, this.Price, this.Quantity, this.Creator, this.Origin);
             return newItem;
+        }
+
+        /*
+         *   < AND > operators are overloaded to perform Clone()
+         *   
+         *      the 'arrow' points to the product that is being cloned, the other being the product that will become the clone
+         */ 
+        public static Product operator >(AntiqueFurniture A, AntiqueFurniture B)
+        {
+            return (Product)B.Clone();
+        }
+        public static Product operator <(AntiqueFurniture A, AntiqueFurniture B)
+        {
+            return (Product)A.Clone();
         }
 
         public override string ToString()
@@ -729,6 +764,7 @@ namespace Baldwin_Matchett_Project
     {
         public List<Product> cart = new List<Product>();
         public int count { get; set; }
+        public decimal subtotal { get; set; }
 
         public decimal TotalCart()
         {
@@ -749,6 +785,22 @@ namespace Baldwin_Matchett_Project
 
         }
 
+        /*
+         *      '+' operator overload
+         *          will return a new cart object containing an updated cart
+         *          , adding product p into it
+         */
+        public static Cart operator +(Cart c, Product p)
+        {
+            Cart newCart = new Cart();
+            foreach(Product item in c.cart)
+            {
+                newCart.cart.Add(item);
+            }
+            newCart.cart.Add(p);
+            return newCart;
+        }
+
         public void Clear(ListBox l)
         {
             foreach (Product p in l.Items)
@@ -765,18 +817,6 @@ namespace Baldwin_Matchett_Project
                 l.Items.Add($"{p.Description}   qty: {p.Quantity}");
             }
         }
-
-        public void HideZeroes(ListBox l)
-        {
-            foreach (Product p in l.Items)
-            {
-                if (p.Quantity == 0)
-                {
-                    l.Items.Remove(p);
-                }
-            }
-        }
-
     }
 
     /*
@@ -800,18 +840,11 @@ namespace Baldwin_Matchett_Project
          */
         void UpdateListBox(ListBox l);
 
-        /*
-         *  HideZeroes(l) hides removes all items with a quantity of
-         *   zero from given listbox
-         *  
-         */
-        void HideZeroes(ListBox l);
-
     }
 
 
 
 
 
-
+     
 }

@@ -101,22 +101,21 @@ namespace Baldwin_Matchett_Project
         {
             int index = lstProducts.SelectedIndex;
             int qty = (int)nudQuantity.Value;
-
-            Product clone;
+            Product clone = null;
 
             try
             {
                 Product product = i.inventory[index];
                 if (product is AntiqueFurniture)
                 {
-                    clone = (AntiqueFurniture)product.Clone();
+                     clone = (AntiqueFurniture)clone > (AntiqueFurniture)product;
                 }
                 else
                 {
-                    clone = (VintageJewelry)product.Clone();
+                     clone = (VintageJewelry)clone > (VintageJewelry)product;
                 }
 
-                System.Diagnostics.Debug.WriteLine($"item being added to cart has qty of {clone.Quantity}");
+                System.Diagnostics.Debug.WriteLine($"item ({clone.Code} being added to cart has qty of {clone.Quantity}");
 
                 int selectedQty = i.inventory[lstProducts.SelectedIndex].Quantity;
 
@@ -135,7 +134,9 @@ namespace Baldwin_Matchett_Project
                         {
                             //add clone to cart
                             clone.Quantity = qty;
-                            c.cart.Add(clone);
+                            //use operator overload to add clone to cart
+                            c = c + clone;
+
                             //change quantity of item in inventory
                             i.inventory[i.inventory.IndexOf(product)].Quantity -= qty;
 
