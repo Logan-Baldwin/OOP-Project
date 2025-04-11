@@ -175,8 +175,14 @@ namespace Baldwin_Matchett_Project
         */
         private void UpdateInfo()
         {
+            int qtyInCart = 0;
+            foreach(Product p in c.cart)
+            {
+                qtyInCart += p.Quantity;
+            }
+
             i.UpdateListBox(lstProducts);
-            lblItemsInCart.Text = $"Items in Cart: {c.cart.Count}";
+            lblItemsInCart.Text = $"Items in Cart: {qtyInCart}";
             lblCost.Text = $"$ {c.TotalCart()}";
         }
 
