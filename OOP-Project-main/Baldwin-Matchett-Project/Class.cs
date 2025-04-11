@@ -17,50 +17,10 @@ namespace Baldwin_Matchett_Project
 
     /*
      *  @author Parker Matchett
-     *  date 2025/04/05 additions:
+
      *
      *
-     *  TODO:
-     *      - overload 1 relational operator
-     *      - overload 1 mathematical operator
-     *      
-     *      
-     *      
-     *      ***file formatting***
-     *      
-     *      Inserting Products
-     *      
-     *      every line is a product, using a comma as a delimiter for each piece of data,
-     *      when they are read in, numerical values are validated, but strings are left alone,
-     *      this assumes the strings make sense.
-     *      
-     *      the first piece of data signifies to our methods what type of object to create
-     *      
-     *      FURNITURE data comes in the form of:
-     *      furniture,code,description,price,quantity,creator,origin
-     *      
-     *      and 
-     *      
-     *      JEWELRY data comes in the form of:
-     *      jewelry,code,description,price,quantity,age,metal
-     *      
-     *      when we read a file to fill the inventory list, we call 
-     *      
-     *     (1)     Inventory inventory = new Inventory
-     *              -> to initialize the inventory list
-     *             
-     *     (2)     FileHelper.ReadProducts(pathtofile, inventory)
-     *          
-     *     (3)     UpdateListbox(lstInventory)
-     *              -> to update the on-screen listbox with the contents of lstInventory
-     *              
-     *              IF the we are displaying this on the customer view, it may be best to call HideZeroes(lstInventory)
-     *                  to hide the products that have a quantity of 0 in our inventory to the customer
-     *                  
-     *                  in the admin view however we dont need to hide anything
-     *      
-     *      
-     *      
+
      *      
      */
 
@@ -80,7 +40,6 @@ namespace Baldwin_Matchett_Project
      */
     public static class FileHelper
     {
-
         /*
          *  ReadSize
          *      param: string
@@ -208,9 +167,6 @@ namespace Baldwin_Matchett_Project
             //clear the file
             ClearFile(path, i.inventory.Count);
 
-
-
-
             //re-fill out the data, skipping the line to remove
             // write all unchanged products back into inventory
             // insert the altered quantity product with it's new quantity
@@ -306,25 +262,23 @@ namespace Baldwin_Matchett_Project
          *  Writes a detailed receipt to orders.txt every time a checkout
          *      is performed
          */
-        public static void OrderReciept(string path, List<Product> products, string user)
+        public static void OrderReciept(string path, List<Product> products, string user, decimal total)
         {
-            decimal total = 0;
 
             StreamWriter writer = File.AppendText(path);
             writer.WriteLine("************************************************************");
-            writer.WriteLine($"Order Reciept for User '{user}'");
+            writer.WriteLine($"Order Receipt for User '{user}'");
             writer.WriteLine("************************************************************");
 
             writer.WriteLine($"Items in order:");
             foreach (Product p in products)
             {
-                total += p.Price;
                 writer.WriteLine($"Code: {p.Code}    Desc: {p.Description}");
                 writer.WriteLine($"Qty Ordered: {p.Quantity}    Price/item: {p.Price}\n");
             }
             writer.WriteLine($"Subtotal:  ${total}");
-            writer.WriteLine($"Tax (15%): ${total * 0.015M}");
-            writer.WriteLine($"Total: ${total + (total * 0.015M)}");
+            writer.WriteLine($"Tax (15%): ${total * 0.15M}");
+            writer.WriteLine($"Total: ${total + (total * 0.15M)}");
             writer.WriteLine("************************************************************");
 
             writer.Close();

@@ -49,7 +49,6 @@ namespace Baldwin_Matchett_Project
                     }
                 }
             }
-
             try
             {
                 FileHelper.ReadProducts("inventory.txt", i.inventory);
@@ -88,12 +87,8 @@ namespace Baldwin_Matchett_Project
                     this.Close();
                 }
             }
-
             i.UpdateListBox(lstProducts);
-
         }
-
-
         private void btnPurchase_Click(object sender, EventArgs e)
         {
             int index = lstProducts.SelectedIndex;
@@ -116,8 +111,6 @@ namespace Baldwin_Matchett_Project
 
                 int selectedQty = i.inventory[lstProducts.SelectedIndex].Quantity;
 
-                if (selectedQty > 0)
-                {
                     if (selectedQty >= qty)
                     {
                         if (c.cart.Contains(clone))      // if cart already contains this product 
@@ -146,12 +139,6 @@ namespace Baldwin_Matchett_Project
                     {
                         MessageBox.Show("That amount is not available to order", "err");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("That amount is not available to order", "err");
-                }
-
             }
             catch
             {

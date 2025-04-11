@@ -90,7 +90,7 @@ namespace Baldwin_Matchett_Project
         { 
             try
             {
-
+                // If the user removes all items instead of purchasing, their quantities will go back up
                 for (int n = 0; n < lstCart.Items.Count; n++)
                 {
                     for (int x = 0; x < i.inventory.Count; x++)
@@ -126,17 +126,9 @@ namespace Baldwin_Matchett_Project
             {
                 MessageBox.Show("Thank you for purchasing your order for " + total, "Purchase Succesful");
                 //write receipt
-                FileHelper.OrderReciept("orders.txt", c.cart, username);
+                FileHelper.OrderReciept("orders.txt", c.cart, username, c.TotalCart());
+
                 //remove items from cart and inventory file
-
-
-
-                // i need 
-                //  - the initial quantity (quantity currently in inventory)
-                //  - the quantity held in cart (p.Quantity)
-                //      
-                //      then subtract initial by held in cart for new qty
-
                 for (int n = 0; n < c.cart.Count; n++)
                 {
                     FileHelper.RemoveByQty(path, c.cart[n], i);
