@@ -63,7 +63,20 @@ namespace Baldwin_Matchett_Project
      *      
      */
 
-
+    /* |=======================================================|                     
+     * |                     FileHelper                        |
+     * |-------------------------------------------------------|
+     * |                    No properties                      |
+     * |-------------------------------------------------------|
+     * |+ReadSize(path:string):integer                         |
+     * |+ReadProducts(path:string, inventorycart:list)         |  
+     * |+ReadUsers(path:string, userList:list)                 |
+     * |+ClearFile(path:string, length:integer)                | 
+     * |+ReadToArrary(path:string, length:integer):string array| 
+     * |+AddProduct(path:string, p:product)                    | 
+     * |+RemoveProduct(path:string, p:product, length:integer) |
+     * |=======================================================|
+     */
     static class FileHelper
     {
 
@@ -233,7 +246,18 @@ namespace Baldwin_Matchett_Project
 
 
 
-
+    /* |==============================================================================================|
+     * |                                         Validator                                            |
+     * |----------------------------------------------------------------------------------------------|
+     * |                                       No properties                                          |
+     * |----------------------------------------------------------------------------------------------|
+     * |+Err(code:string)                                                                             |
+     * |+FindInt(s:string, d:integer):boolean                                                         | 
+     * |+FindDecimal(s:string, d:decimal):boolean                                                     |
+     * |+ValidateItem(arr:string array, code:integer, price:decimal, qty:integer, age:integer):boolean| 
+     * |+ValidateUser(userList:list, user:string, passwd:string, loginuser:User):boolean              |
+     * |==============================================================================================|
+     */
     static class Validator
     {
         /*
@@ -257,8 +281,6 @@ namespace Baldwin_Matchett_Project
             return false;
 
         }
-
-
         public static bool FindDecimal(string s, out decimal d)
         {
             if (Decimal.TryParse(s, out decimal result))
@@ -347,7 +369,18 @@ namespace Baldwin_Matchett_Project
 
 
 
-
+    /* |==================|      
+     * |      User        |
+     * |------------------|
+     * |+UserID:string    |
+     * |+Password:string  |
+     * |+Name:string      |
+     * |+Access:string    |
+     * |+User:object      |
+     * |------------------|
+     * |+ToString():string|
+     * |==================|
+     */
     public class User
     {
         public string UserID { get; set; }
@@ -368,7 +401,14 @@ namespace Baldwin_Matchett_Project
         }
 
     }
-
+    /* |==================|
+     * |     Customer     |
+     * |------------------|
+     * |+Customer:object  | 
+     * |------------------|
+     * |+ToString():string|
+     * |==================|
+     */
     class Customer : User
     {
         public Customer(string userid, string password, string name) : base(userid, password, name)
@@ -383,7 +423,14 @@ namespace Baldwin_Matchett_Project
         }
 
     }
-
+    /*|==================|
+    * |      Admin       |
+    * |------------------|
+    * |+Admin:object     |
+    * |------------------|
+    * |+ToString():string|
+    * |==================|
+    */
     class Admin : User
     {
         public Admin(string userid, string password, string name) : base(userid, password, name)
@@ -396,7 +443,19 @@ namespace Baldwin_Matchett_Project
         }
 
     }
-
+    /* |======================|    
+     * |    Product           |
+     * |----------------------|
+     * |+Code:integer         |
+     * |+Description:string   |
+     * |+Price:decimal        |
+     * |+Quantity:int         |
+     * |+Product:object       |
+     * |----------------------|
+     * |+ToString():string    |
+     * |+IsAvailable():boolean|
+     * |======================|
+     */
     public abstract class Product
     {
         public int Code { get; set; }
@@ -418,7 +477,17 @@ namespace Baldwin_Matchett_Project
 
 
     }
-
+    /* |======================|
+     * |   VintageJewelry     |
+     * |----------------------|
+     * |+Age:int              |
+     * |+Metal:string         |
+     * |+VintageJewelry:object|
+     * |----------------------|
+     * |+IsAvailable():boolean|
+     * |+ToString():string    |
+     * |======================|
+     */
     sealed class VintageJewelry : Product
     {
         public int Age { get; set; }
@@ -445,7 +514,17 @@ namespace Baldwin_Matchett_Project
         }
 
     }
-
+    /*|========================|
+    * |   AntiqueFurniture     |
+    * |------------------------|
+    * |+Creator:string         |
+    * |+Origin:string          | 
+    * |+AntiqueFurniture:object|
+    * |------------------------|
+    * |+IsAvailable():boolean  |
+    * |+ToString():string      |
+    * |========================|
+    */
     sealed class AntiqueFurniture : Product
     {
         public string Creator { get; set; }
@@ -471,7 +550,16 @@ namespace Baldwin_Matchett_Project
                     "   Qty: " + this.Quantity + "  Creator: " + this.Creator + "  Origin: " + this.Origin;
         }
     }
-
+    /* |==========================|
+     * |       Inventory          |
+     * |------------------------- |
+     * |+Inventory:list           |
+     * |------------------------- |
+     * |+UpdateListBox(l:listbox) |
+     * |+Clear(l:listbox)         |
+     * |+HideZeroes(l:listbox)    |
+     * |==========================|
+     */
     public class Inventory : IUpdater
     {
 
@@ -510,7 +598,19 @@ namespace Baldwin_Matchett_Project
             }
         }
     }
-
+    /* |=========================|
+     * |         Cart            |
+     * |-------------------------|
+     * |+cart:list               |
+     * |+count:int               |
+     * |-------------------------|
+     * |+TotalCart():decimal     |
+     * |+ClearCart(total:decimal)|
+     * |+Clear(l:listbox)        |
+     * |+UpdateListBox(l:listbox)|
+     * |+HideZeroes(l:listbox)   |
+     * |=========================|
+     */
     public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
