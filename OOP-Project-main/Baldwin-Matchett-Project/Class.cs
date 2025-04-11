@@ -78,7 +78,7 @@ namespace Baldwin_Matchett_Project
      * |+RemoveProduct(path:string, p:product, length:integer) |
      * |=======================================================|
      */
-    static class FileHelper
+    public static class FileHelper
     {
 
         /*
