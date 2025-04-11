@@ -578,20 +578,21 @@ namespace Baldwin_Matchett_Project
 
 
     }
-    /* |======================|
-     * |   VintageJewelry     |
-     * |----------------------|
-     * |+Age:int              |
-     * |+Metal:string         |
-     * |+VintageJewelry:object|
-     * |----------------------|
-     * |+IsAvailable():boolean|
-     * |+ToString():string    |
-     * |+Clone():object       |
-     * |+overload>:           |
-     * |     VintageJewelry   |
-     * |======================|
-     */
+
+     /* |======================================================|
+      * |                   VintageJewelry                     |
+      * |------------------------------------------------------|
+      * |+Age:int                                              |
+      * |+Metal:string                                         |
+      * |+VintageJewelry:object                                |
+      * |------------------------------------------------------|
+      * |+IsAvailable():boolean                                |
+      * |+ToString():string                                    |
+      * |+Clone():object                                       |
+      * |+overload>(A:vintageJewelry, B:vintageJewelry):product|
+      * |+overload<(A:vintageJewelry, B:vintageJewelry):product|
+      * |======================================================|
+      */
     sealed class VintageJewelry : Product
     {
         public int Age { get; set; }
@@ -638,20 +639,20 @@ namespace Baldwin_Matchett_Project
         }
 
     }
-    /*|========================|
-    * |   AntiqueFurniture     |
-    * |------------------------|
-    * |+Creator:string         |
-    * |+Origin:string          | 
-    * |+AntiqueFurniture:object|
-    * |------------------------|
-    * |+IsAvailable():boolean  |
-    * |+ToString():string      |
-    * |+Clone():object         |
-    * |+overload>:             |
-    * |     AntiqueFurniture   |
-    * |========================|
-    */
+    /*|==========================================================|
+     * |                     AntiqueFurniture                     |
+     * |----------------------------------------------------------|
+     * |+Creator:string                                           |
+     * |+Origin:string                                            |  
+     * |+AntiqueFurniture:object                                  |
+     * |----------------------------------------------------------|
+     * |+IsAvailable():boolean                                    |
+     * |+ToString():string                                        |
+     * |+Clone():object                                           |
+     * |+overload>(A:antiqueFurniture, B:antiqueFurniture):product|
+     * |+overload<(A:antiqueFurniture, B:antiqueFurniture):product|
+     * |==========================================================|
+     */
     sealed class AntiqueFurniture : Product
     {
         public string Creator { get; set; }
@@ -738,19 +739,20 @@ namespace Baldwin_Matchett_Project
         }
         
     }
-    /* |=========================|
-     * |         Cart            |
-     * |-------------------------|
-     * |+cart:list               |
-     * |+count:int               |
-     * |-------------------------|
-     * |+TotalCart():decimal     |
-     * |+ClearCart(total:decimal)|
-     * |+Clear(l:listbox)        |
-     * |+UpdateListBox(l:listbox)|
-     * |+HideZeroes(l:listbox)   |
-     * |=========================|
-     */
+    /* |=====================================|
+      * |                Cart                 |
+      * |-------------------------------------|
+      * |+cart:list                           |
+      * |+count:int                           |
+      * |-------------------------------------|
+      * |+TotalCart():decimal                 |
+      * |+ClearCart(total:decimal)            |
+      * |+Clear(l:listbox)                    |
+      * |+UpdateListBox(l:listbox)            |
+      * |+HideZeroes(l:listbox)               |
+      * |+overload+(c:cart, p:product):product|
+      * |=====================================|
+      */
     public class Cart : IUpdater
     {
         public List<Product> cart = new List<Product>();
