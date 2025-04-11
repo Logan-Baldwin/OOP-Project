@@ -764,7 +764,7 @@ namespace Baldwin_Matchett_Project
             decimal total = 0;
             foreach (Product p in cart)
             {
-                total += p.Price;
+                total += p.Price * p.Quantity;
             }
             return total;
         }
