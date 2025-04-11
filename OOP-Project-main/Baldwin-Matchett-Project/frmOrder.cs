@@ -159,7 +159,7 @@ namespace Baldwin_Matchett_Project
 
         private void btnViewCart_Click(object sender, EventArgs e)
         {
-            frmCheckout cart = new frmCheckout(c, path, i);
+            frmCheckout cart = new frmCheckout(c, path, i, username);
             cart.ShowDialog();
             lblCost.Text = $"$ {c.TotalCart()}";
 

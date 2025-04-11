@@ -1,0 +1,228 @@
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 8    Desc: 18th Century Italian Gilt Wood Mirror with Floral Decoration
+Qty Ordered: 1    Price/item: 2400.00
+
+Subtotal:  $2400.00
+Tax (15%): $36.00000
+Total: $2436.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 8    Desc: 18th Century Italian Gilt Wood Mirror with Floral Decoration
+Qty Ordered: 1    Price/item: 2400.00
+
+Subtotal:  $2400.00
+Tax (15%): $36.00000
+Total: $2436.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 7    Desc: Mid-Victorian Burled Wood Credenza with Bronze Hardware
+Qty Ordered: 1    Price/item: 2600.00
+
+Subtotal:  $2600.00
+Tax (15%): $39.00000
+Total: $2639.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 1    Price/item: 1600.00
+
+Subtotal:  $1600.00
+Tax (15%): $24.00000
+Total: $1624.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 3    Desc: 310K White Gold Pear-Cut Amethyst Filigree Ring
+Qty Ordered: 5    Price/item: 655.00
+
+Subtotal:  $655.00
+Tax (15%): $9.82500
+Total: $664.82500
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 4    Desc: Edwardian Rock Quartz and Diamond Necklace
+Qty Ordered: 2    Price/item: 650.00
+
+Subtotal:  $650.00
+Tax (15%): $9.75000
+Total: $659.75000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 6    Desc: French Empire love seat in Carved Mahogany
+Qty Ordered: 2    Price/item: 3500.00
+
+Subtotal:  $3500.00
+Tax (15%): $52.50000
+Total: $3552.50000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 3    Price/item: 1600.00
+
+Subtotal:  $1600.00
+Tax (15%): $24.00000
+Total: $1624.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 4    Desc: Edwardian Rock Quartz and Diamond Necklace
+Qty Ordered: 1    Price/item: 650.00
+
+Subtotal:  $650.00
+Tax (15%): $9.75000
+Total: $659.75000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 3    Desc: 310K White Gold Pear-Cut Amethyst Filigree Ring
+Qty Ordered: 3    Price/item: 655.00
+
+Subtotal:  $655.00
+Tax (15%): $9.82500
+Total: $664.82500
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 4    Desc: Edwardian Rock Quartz and Diamond Necklace
+Qty Ordered: 2    Price/item: 650.00
+
+Code: 1    Desc: 10K Yellow Gold St Edward's Crown Pendant
+Qty Ordered: 2    Price/item: 325.00
+
+Subtotal:  $975.00
+Tax (15%): $14.62500
+Total: $989.62500
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 6    Desc: French Empire love seat in Carved Mahogany
+Qty Ordered: 1    Price/item: 3500.00
+
+Subtotal:  $3500.00
+Tax (15%): $52.50000
+Total: $3552.50000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 5    Desc: Antique English 15kt Gold Locket
+Qty Ordered: 1    Price/item: 4200.00
+
+Subtotal:  $4200.00
+Tax (15%): $63.00000
+Total: $4263.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 2    Price/item: 1600.00
+
+Subtotal:  $1600.00
+Tax (15%): $24.00000
+Total: $1624.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 3    Desc: 310K White Gold Pear-Cut Amethyst Filigree Ring
+Qty Ordered: 2    Price/item: 655.00
+
+Subtotal:  $655.00
+Tax (15%): $9.82500
+Total: $664.82500
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 4    Desc: Edwardian Rock Quartz and Diamond Necklace
+Qty Ordered: 1    Price/item: 650.00
+
+Subtotal:  $650.00
+Tax (15%): $9.75000
+Total: $659.75000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 1    Price/item: 1600.00
+
+Subtotal:  $1600.00
+Tax (15%): $24.00000
+Total: $1624.00000
+************************************************************
+************************************************************
+Order Reciept for User 'parker'
+************************************************************
+Items in order:
+Code: 1    Desc: 10K Yellow Gold St Edward's Crown Pendant
+Qty Ordered: 4    Price/item: 325.00
+
+Code: 2    Desc: 14K Yellow Gold Hand-Carved Shell Cameo Brooch
+Qty Ordered: 1    Price/item: 995.00
+
+Code: 3    Desc: 310K White Gold Pear-Cut Amethyst Filigree Ring
+Qty Ordered: 5    Price/item: 655.00
+
+Code: 4    Desc: Edwardian Rock Quartz and Diamond Necklace
+Qty Ordered: 3    Price/item: 650.00
+
+Code: 5    Desc: Antique English 15kt Gold Locket
+Qty Ordered: 1    Price/item: 4200.00
+
+Code: 6    Desc: French Empire love seat in Carved Mahogany
+Qty Ordered: 2    Price/item: 3500.00
+
+Code: 7    Desc: Mid-Victorian Burled Wood Credenza with Bronze Hardware
+Qty Ordered: 1    Price/item: 2600.00
+
+Code: 8    Desc: 18th Century Italian Gilt Wood Mirror with Floral Decoration
+Qty Ordered: 1    Price/item: 2400.00
+
+Code: 9    Desc: 20th Century Irish Art Nouveau Walnut Dresser with Vanity Mirror
+Qty Ordered: 2    Price/item: 1600.00
+
+Code: 10    Desc: 18 Century George II Oak Knee Hole Desk
+Qty Ordered: 1    Price/item: 3500.00
+
+Subtotal:  $20425.00
+Tax (15%): $306.37500
+Total: $20731.37500
+************************************************************

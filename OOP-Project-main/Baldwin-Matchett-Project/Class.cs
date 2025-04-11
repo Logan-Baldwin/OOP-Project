@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms.VisualStyles;
 
 namespace Baldwin_Matchett_Project
 {
@@ -184,39 +185,64 @@ namespace Baldwin_Matchett_Project
             {
                 writer.WriteLine("");
             }
+            System.Diagnostics.Debug.WriteLine("File cleared");
             writer.Close();
         }
 
-        public static void RemoveByQty(string path, Product p, int length)
+        public static void RemoveByQty(string path, Product p, Inventory i)
         {
-            string[] products = ReadToArray(path, length);
+            string[] products = ReadToArray(path, i.inventory.Count);
+            int code = p.Code;
+            int newQty = 0;
+
+            //getting new quantity to insert in inventory file
+            //  by searching for the product in the inventory list
+            foreach(Product item in i.inventory)
+            {
+                if(item.Code == code)
+                {
+                    newQty = item.Quantity;
+                }
+            }
 
             //clear the file
-            ClearFile(path, length);
+            ClearFile(path, i.inventory.Count);
 
-            StreamWriter writer = new StreamWriter(path);
+
+
+
             //re-fill out the data, skipping the line to remove
-
             // write all unchanged products back into inventory
             // insert the altered quantity product with it's new quantity
+            StreamWriter writer = new StreamWriter(path);
             foreach (string s in products)
-            { 
+            {
+                System.Diagnostics.Debug.WriteLine($"Testing if string {s} contains {p.Description}");
                 if (!s.Contains(p.Description))
                 {
+                    System.Diagnostics.Debug.WriteLine($"Yes, writing to file");
                     writer.WriteLine(s);
                 }
                 else
                 {
-                    if(p is AntiqueFurniture)
+                    System.Diagnostics.Debug.WriteLine($"no, making new data string with new quantity");
+                    if (p.Quantity > 0)
                     {
-                        AntiqueFurniture af = (AntiqueFurniture)p;
-                        writer.WriteLine($"furniture,{af.Code},{af.Description},{af.Price},{af.Quantity},{af.Creator},{af.Origin}");
+                        if (p is AntiqueFurniture)
+                        {
+
+                            AntiqueFurniture af = (AntiqueFurniture)p;
+                            writer.WriteLine($"furniture,{af.Code},{af.Description},{af.Price},{newQty},{af.Creator},{af.Origin}");
+                            System.Diagnostics.Debug.WriteLine($"Item '{af}' has been written back into file with new qty");
+                        }
+                        if (p is VintageJewelry)
+                        {
+                            VintageJewelry j = (VintageJewelry)p;
+                            writer.WriteLine($"jewelry,{j.Code},{j.Description},{j.Price},{newQty},{j.Age},{j.Metal}");
+                            System.Diagnostics.Debug.WriteLine($"Item '{j}' has been written back into file with new qty");
+                        }
                     }
-                    if (p is VintageJewelry)
-                    {
-                        VintageJewelry j = (VintageJewelry)p;
-                        writer.WriteLine($"jewelry,{j.Code},{j.Description},{j.Price},{p.Quantity - j.Quantity},{j.Age},{j.Metal}");
-                    }
+
 
                 }
 
@@ -229,7 +255,7 @@ namespace Baldwin_Matchett_Project
             StreamReader reader = new StreamReader(path);
             string[] products = new string[length];
 
-            //read all products into a string[]
+
             for (int i = 0; i < length; i++)
             {
                 products[i] = reader.ReadLine();
@@ -259,18 +285,47 @@ namespace Baldwin_Matchett_Project
 
             string[] products = ReadToArray(path, length);
 
-            //clear the file
-            ClearFile(path, length);
+            ClearFile("path", products.Length);
 
             StreamWriter writer = new StreamWriter(path);
             //re-fill out the data, skipping the line to remove
             foreach (string s in products)
             {
-                if (!s.Contains(p.Description))
+                if (!s.Contains(p.Description) & s != null)
                 {
+                    System.Diagnostics.Debug.WriteLine($"Item '{s}' has been written back into file");
                     writer.WriteLine(s);
                 }
             }
+
+            writer.Close();
+
+        }
+
+        /*
+         *  Writes a detailed receipt to orders.txt every time a checkout
+         *      is performed
+         */
+        public static void OrderReciept(string path, List<Product> products, string user)
+        {
+            decimal total = 0;
+
+            StreamWriter writer = File.AppendText(path);
+            writer.WriteLine("************************************************************");
+            writer.WriteLine($"Order Reciept for User '{user}'");
+            writer.WriteLine("************************************************************");
+
+            writer.WriteLine($"Items in order:");
+            foreach (Product p in products)
+            {
+                total += p.Price;
+                writer.WriteLine($"Code: {p.Code}    Desc: {p.Description}");
+                writer.WriteLine($"Qty Ordered: {p.Quantity}    Price/item: {p.Price}\n");
+            }
+            writer.WriteLine($"Subtotal:  ${total}");
+            writer.WriteLine($"Tax (15%): ${total * 0.015M}");
+            writer.WriteLine($"Total: ${total + (total * 0.015M)}");
+            writer.WriteLine("************************************************************");
 
             writer.Close();
 
@@ -494,7 +549,6 @@ namespace Baldwin_Matchett_Project
      * |+Clone():object       |
      * |======================|
      */
-    public abstract class Product
 
     public abstract class Product : ICloneable
     {

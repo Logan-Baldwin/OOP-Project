@@ -15,13 +15,14 @@ namespace Baldwin_Matchett_Project
         Cart c;
         Inventory i;
         string path;
-        int length;
-        public frmCheckout(Cart cart, string Path, Inventory I)
+        string username;
+        public frmCheckout(Cart cart, string Path, Inventory I, string name)
         {
             InitializeComponent();
             c = cart;
             path = Path;
             i = I;
+            username = name;
         }
         private void frmCheckout_Load(object sender, EventArgs e)
         {
@@ -120,17 +121,27 @@ namespace Baldwin_Matchett_Project
         {
             string type = "purchase";
             string total = lblTotal.Text;
+            
             if (total != "")
             {
                 MessageBox.Show("Thank you for purchasing your order for " + total, "Purchase Succesful");
-                Product lastRemoved = null;
+                //write receipt
+                FileHelper.OrderReciept("orders.txt", c.cart, username);
+                //remove items from cart and inventory file
+
+
+
+                // i need 
+                //  - the initial quantity (quantity currently in inventory)
+                //  - the quantity held in cart (p.Quantity)
+                //      
+                //      then subtract initial by held in cart for new qty
+
                 for (int n = 0; n < c.cart.Count; n++)
                 {
-                    FileHelper.RemoveByQty(path, c.cart[n], length);
-                    lastRemoved = c.cart[n];
-                    c.cart.RemoveAt(n);
+                    FileHelper.RemoveByQty(path, c.cart[n], i);
                 }
-
+                 
                 
             }
             else
