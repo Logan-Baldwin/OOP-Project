@@ -3,19 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\frmcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\frmcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|c:\\users\\logan\\onedrive\\documents\\github\\oop-project\\oop-project-main\\baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -27,8 +23,12 @@
       "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|c:\\users\\logan\\onedrive\\documents\\github\\oop-project\\oop-project-main\\baldwin-matchett-project\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F76966A-ECB0-44F4-9488-630C9FF8F714}|Baldwin-Matchett-Project\\Baldwin-Matchett-Project.csproj|solutionrelative:baldwin-matchett-project\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Class.cs",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\Class.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\Class.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\Form1.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\Form1.cs",
@@ -68,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "frmOrder.cs",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\frmOrder.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\frmOrder.cs",
@@ -94,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\Form1.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\Form1.cs",
@@ -106,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "frmOrder.cs [Design]",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\frmOrder.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\frmOrder.cs",
@@ -118,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "frmCheckout.cs [Design]",
               "DocumentMoniker": "C:\\Users\\logan\\OneDrive\\Documents\\GitHub\\OOP-Project\\OOP-Project-main\\Baldwin-Matchett-Project\\frmCheckout.cs",
               "RelativeDocumentMoniker": "Baldwin-Matchett-Project\\frmCheckout.cs",
