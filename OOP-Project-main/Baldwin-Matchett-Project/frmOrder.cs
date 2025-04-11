@@ -28,9 +28,6 @@ namespace Baldwin_Matchett_Project
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
-
-
-
             // Hides the tab headers
             tabOrders.Appearance = TabAppearance.FlatButtons;
             tabOrders.ItemSize = new Size(0, 1);
@@ -145,11 +142,16 @@ namespace Baldwin_Matchett_Project
                         }
                         UpdateInfo();
                     }
+                    else
+                    {
+                        MessageBox.Show("That amount is not available to order", "err");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("That amount is not available to order", "err");
                 }
+
             }
             catch
             {
